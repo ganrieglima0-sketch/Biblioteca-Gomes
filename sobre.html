@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que Somos</title>
+    <!--    LOGO/ABA    -->
+    <link rel="icon" type="image/png" sizes="128x128" href="logo_aba.png">
+
+    <!--    RECURSO     -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif:wght@400;500;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sobre.css">
+</head>
+<body id="topo">
+
+    <!--    MENU    -->
+    <header>
+        <nav id="nav-esq">
+            <!--    LOGO    -->
+            <div id="logo">
+                <img class="logo-claro" src="logo_default.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+                <img class="logo-escuro" src="logo_darkmode.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+            </div>
+            <!--    MENU HAMBURGUER    -->
+            <ul id="icon-menu">
+                <li id="menu"><i class="fa-solid fa-bars fa-2xl"></i></li>
+            </ul>
+            <!--    MENU    -->
+            <ul class="menu-principal">
+                <li class="menu-fechar"><i class="fa-solid fa-xmark fa-2xl"></i></li>
+                <li><a class="btn" href="index.html">Home</a></li>
+                <li><a class="btn" href="acervo.html">Acervo</a></li>
+                <li><a class="btn" href="leitura.html">Leitura</a></li>
+                <li><a class="btn" href="ajuda.html">Ajuda</a></li>
+                <li><a class="btn ativo" href="sobre.html">O que Somos</a></li>
+                <!--    DROPDOWN IDIOMA    -->
+                <li class="dropdown-ac">
+                    <a id="btn-idioma" class="btn dropdown-btn-ac" href="#">Idioma<span id="seta-idioma"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content dd-idioma">
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('pt'); return false;">Pt</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('en'); return false;">En</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('es'); return false;">Es</a>
+                    </div>
+                </li>
+                <!--    DROPDOWN ACESSIBILIDADE    -->
+                <li class="dropdown-ac">
+                    <a id="btn-acessibilidade" class="btn dropdown-btn-ac" href="#">Acessibilidade<span id="seta-ac"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content">
+                        <a id="a+" class="btn-dd" href="#">A+</a>
+                        <a id="a-" class="btn-dd" href="#">A-</a>
+                        <a id="dark" class="btn-dd" href="#"><i id="darkmode" class="fa-solid fa-moon"></i>
+                        <i id="whitemode" class="fa-solid fa-sun"></i></a>
+                    </div>
+                </li>
+                            <!--    BOTÕES LOGIN (só aparecem deslogado)    -->
+            <li class="botoes-login" id="botoes-login">
+                <a href="criar.html" class="btn-criar"><b>Criar</b></a>
+                <a href="login.html" class="btn-entrar"><b>Entrar</b></a>
+            </li>
+            <!--    USUÁRIO (só aparece logado)    -->
+            <li class="usuario oculto" id="usuario">
+                <button type="button" id="btn-usuario" class="btn-usuario" aria-label="Abrir menu da conta">
+                    <img id="foto-usuario" class="foto-usuario" src="perfil_basico.png" alt="Foto do perfil">
+                </button>
+                <div class="menu-usuario" id="menu-usuario">
+                    <p id="nome-usuario" class="nome-usuario"></p>
+                    <p id="plano-usuario" class="plano-usuario"></p>
+                    <button type="button" id="btn-sair" class="btn-sair"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+                </div>
+            </li>
+        </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!--    TOPO    -->
+        <section class="topo">
+            <div class="conteudo topo-grade">
+                <div class="topo-texto">
+                    <span class="etiqueta ac">CONHECIMENTO QUE TRANSFORMA</span>
+                    <h1 class="ac">Conectando você ao conhecimento</h1>
+                    <p class="ac">A Biblioteca Gomes reúne conteúdos de Ciência, Educação, Medicina, TI,
+                        Engenharia, Direito, além de tramas, dramas, ação e fantasia.</p>
+                </div>
+                <div class="topo-imagem">
+                    <img src="biblio_celestial.png" alt="biblioteca">
+                </div>
+            </div>
+        </section>
+
+        <!--    CATEGORIAS    -->
+        <section class="secao">
+            <div class="conteudo">
+                <h2 class="ac">Um universo de possibilidades</h2>
+                <p class="subtitulo ac">Para estudar, se especializar ou viajar por novas histórias. Encontre o seu caminho.</p>
+
+                <div class="grade">
+                    <article class="card">
+                        <span class="numero ac">01 / ACERVO</span>
+                        <h3 class="ac">Acadêmico</h3>
+                        <p class="ac">Ciência, Educação e Engenharia para ampliar sua formação.</p>
+                        <a class="link-card ac" href="acervo.html">Explorar categoria <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <span class="numero ac">02 / ACERVO</span>
+                        <h3 class="ac">Tecnologia</h3>
+                        <p class="ac">TI, inovação e novas ideias para acompanhar o futuro.</p>
+                        <a class="link-card ac" href="acervo.html">Explorar categoria <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <span class="numero ac">03 / ACERVO</span>
+                        <h3 class="ac">Saúde</h3>
+                        <p class="ac">Medicina e bem-estar: conhecimento que cuida.</p>
+                        <a class="link-card ac" href="acervo.html">Explorar categoria <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <span class="numero ac">04 / ACERVO</span>
+                        <h3 class="ac">Direito</h3>
+                        <p class="ac">Fundamentos e perspectivas para compreender a sociedade.</p>
+                        <a class="link-card ac" href="acervo.html">Explorar categoria <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <span class="numero ac">05 / ACERVO</span>
+                        <h3 class="ac">Ficção</h3>
+                        <p class="ac">Tramas, dramas e ação para mergulhar em boas histórias.</p>
+                        <a class="link-card ac" href="acervo.html">Explorar categoria <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="card">
+                        <span class="numero ac">06 / ACERVO</span>
+                        <h3 class="ac">Fantasia</h3>
+                        <p class="ac">Mundos extraordinários que despertam a imaginação.</p>
+                        <a class="link-card ac" href="acervo.html">Explorar categoria <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--    RECURSOS    -->
+        <section class="secao secao-cinza">
+            <div class="conteudo">
+                <h2 class="ac">Mais liberdade para a sua leitura</h2>
+                <p class="subtitulo ac">Recursos que acompanham você em cada descoberta.</p>
+
+                <div class="grade grade-3">
+                    <article class="card recurso">
+                        <div class="recurso-titulo">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                            <h3 class="ac">Leitura offline</h3>
+                        </div>
+                        <p class="ac">Baixe seus livros e continue lendo, mesmo sem conexão.</p>
+                    </article>
+                    <article class="card recurso">
+                        <div class="recurso-titulo">
+                            <i class="fa-solid fa-highlighter"></i>
+                            <h3 class="ac">Marcações e Anotações</h3>
+                        </div>
+                        <p class="ac">Destaque trechos e guarde suas ideias em um só lugar.</p>
+                    </article>
+                    <article class="card recurso">
+                        <div class="recurso-titulo">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <h3 class="ac">Recomendações por IA</h3>
+                        </div>
+                        <p class="ac">Descubra novas leituras a partir dos seus interesses.</p>
+                    </article>
+                    <article class="card recurso">
+                        <div class="recurso-titulo">
+                            <i class="fa-solid fa-bookmark"></i>
+                            <h3 class="ac">Biblioteca pessoal</h3>
+                        </div>
+                        <p class="ac">Salve favoritos e acompanhe seu histórico de leitura.</p>
+                    </article>
+                    <article class="card recurso">
+                        <div class="recurso-titulo">
+                            <i class="fa-solid fa-universal-access"></i>
+                            <h3 class="ac">Acessibilidade</h3>
+                        </div>
+                        <p class="ac">Ajuste o tamanho da letra e use o modo de alto contraste.</p>
+                    </article>
+                    <article class="card recurso">
+                        <div class="recurso-titulo">
+                            <i class="fa-solid fa-language"></i>
+                            <h3 class="ac">Vários idiomas</h3>
+                        </div>
+                        <p class="ac">Navegue em português, inglês ou espanhol.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--    REDES E CONTATO    -->
+        <section class="secao" id="contato">
+            <div class="conteudo contato-grade">
+                <div class="contato-esq">
+                    <h2 class="ac">Redes e Contato</h2>
+                    <p class="subtitulo ac">Boas conversas também abrem caminhos.<br>
+                        Fale com a gente ou acompanhe nossas novidades.</p>
+
+                    <a class="rede" href="https://br.linkedin.com" target="_blank">
+                        <i class="fa-brands fa-linkedin-in icone-rede"></i>
+                        <span class="rede-texto">
+                            <strong class="ac">LinkedIn</strong>
+                            <small class="ac">Conhecimento que conecta.</small>
+                        </span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="rede" href="https://www.instagram.com" target="_blank">
+                        <i class="fa-brands fa-instagram icone-rede"></i>
+                        <span class="rede-texto">
+                            <strong class="ac">Instagram</strong>
+                            <small class="ac">Inspiração para a sua próxima leitura.</small>
+                        </span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+
+                    <div class="escrever">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>
+                            <strong class="ac">Prefere escrever? Estamos por aqui.</strong>
+                            <small class="ac">Envie sua mensagem no formulário ao lado.</small>
+                        </span>
+                    </div>
+                </div>
+
+                <!--    FORMULÁRIO    -->
+                <form class="formulario" id="form-contato" novalidate>
+                    <h3 class="ac">Envie sua mensagem</h3>
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Seu nome">
+                    </div>
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seuemail@exemplo.com">
+                    </div>
+                    <div class="campo">
+                        <label for="assunto">Assunto</label>
+                        <select id="assunto">
+                            <option value="">Selecione</option>
+                            <option value="duvida">Dúvida</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="problema">Problema no site</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" rows="5" placeholder="Escreva aqui..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar mensagem</button>
+                    <p class="aviso-form" id="aviso-form"></p>
+                </form>
+            </div>
+        </section>
+
+       <!--    FINAL    -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,90 C360,-10 1080,190 1440,70 L1440,150 L0,150 Z"></path>
+            </svg>
+        </div>
+        <div class="footer-conteudo">
+            <div class="footer-col">
+                <h3>Planos</h3>
+                <ul>
+                    <li><a href="index.html#plano1">Basic</a></li>
+                    <li><a href="index.html#plano2">Standard</a></li>
+                    <li><a href="index.html#plano3">Premium</a></li>
+                </ul>
+            </div>
+        <div class="footer-col">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="sobre.html">Sobre nós</a></li>
+                <li><a href="ajuda.html#contato">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-logo" class="footer-col">
+                <img id="logo_default" src="logo_default.png" alt="Logo">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo">
+        </div>
+        <div class="footer-col">
+            <h3>Suporte</h3>
+            <ul>
+                <li><a href="ajuda.html#faq">Central de ajuda</a></li>
+                <li><a href="ajuda.html#termos">Termos de uso</a></li>
+                <li><a href="ajuda.html#privacidade">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Baixe nosso app</h3>
+            <div class="box-apps">
+                <a href="https://apps.apple.com/br/developer/apple/id284417353?mt=12" target="_blank" class="app">
+                    <span id="icon" style="color: #fff;"><i class="fa-brands fa-apple fa-xl"></i></span>
+                    <span>
+                    <small>Disponível na</small>
+                         App Store </span>
+                </a> 
+                <a href="https://play.google.com/store/games?hl=pt_BR" target="_blank" class="app">
+                    <span id="icon" style="color: #fff"><i class="fa-brands fa-google-play fa-xl"></i></span>
+                    <span>
+                    <small>Disponível no</small>
+                    Google Play</span>
+                </a>
+            </div>
+        </div>
+        </div>
+  <div class="footer-social-daddy">
+    <h3>Siga-nos</h3>
+    <div class="footer-social">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-lg"></i></a>
+      <a href="https://br.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in fa-lg"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+      <a href="https://x.com/?lang=pt" target="_blank"><i class="fa-brands fa-x-twitter fa-lg"></i></a> 
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    <p>&copy; 2026 Biblioteca Gomes. Todos os direitos reservados.</p>
+    <div class="footer-termos">
+      <a href="ajuda.html#termos">Termos</a>
+      <a href="ajuda.html#privacidade">Privacidade</a>
+      <a href="ajuda.html#cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+    <a href="#topo" id="botao-up"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <!--    RECURSO     -->
+    <div id="google_translate_element" style="display: none;"></div>
+    <script src="sobre.js"></script>
+    <script src="conta.js"></script>
+</body>
+</html>

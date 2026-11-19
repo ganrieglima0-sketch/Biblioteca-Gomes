@@ -1,0 +1,560 @@
+/* =========================================================
+   * MOBILE (até 768px)
+   * Incorporado do mobile.css antigo. As regras abaixo só
+   * valem em telas pequenas e não afetam o desktop.
+========================================================= */
+/* NOVO: este arquivo precisa ser carregado DEPOIS do style.css, pois só sobrescreve o que muda no celular */
+@media (max-width: 768px) {
+
+  /* MOBILE - GLOBAL */
+  * {
+    max-width: 100%;
+  }
+  html, body {
+    min-height: 100dvh;
+  }
+
+  h1 { font-size: 40px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+  p, a { font-size: 20px; }
+
+  /* * Textos centralizados no mobile (exceção: texto dos recursos, logo abaixo) */
+  h1, h2, h3, p {
+    text-align: center;
+  }
+
+  /* MOBILE - HEADER / HERO */
+  header {
+    height: auto;
+    min-height: 100svh;
+    padding-bottom: 2rem;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  /* MOBILE - NAV / MENU HAMBURGUER */
+  #nav-esq {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 1rem;
+  }
+
+  #logo {
+    margin-left: 0;
+  }
+
+  #icon-menu {
+    display: flex;
+    margin-left: auto;
+  }
+  #icon-menu li {
+    cursor: pointer;
+    list-style: none;
+  }
+  #icon-menu li ion-icon,
+  #icon-menu li i {
+    font-size: 34px;
+    color: #021959;
+  }
+
+  /* MOBILE - MENU LATERAL (SIDEBAR) */
+  .menu-principal {
+    display: flex;
+    flex-flow: column nowrap; /* * nowrap evita o menu quebrar em colunas (V2 tinha row wrap) */
+    position: fixed;
+    top: 0;
+    right: 0;
+    gap: 0.5rem;
+    height: 100dvh;
+    max-height: none;
+    width: 78%;
+    max-width: 320px;
+    margin: 0;
+    padding: 3.5rem 1.5rem 2rem; /* * topo maior para não colidir com o botão de fechar */
+    background-color: #ffffff;
+    box-shadow: -6px 0 24px rgba(0,0,0,0.18);
+    z-index: 20;
+    transform: translateX(100%);
+    transition: transform .35s ease-in-out;
+    overflow-y: auto;
+    overscroll-behavior: contain; /* * evita rolar a página por trás do menu */
+  }
+  .menu-principal.aberto {
+    transform: translateX(0);
+    border-radius: 25px 0px 0px 0px;
+  }
+
+  .menu-principal li {
+    list-style: none;
+    margin-right: 0;
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+  .menu-principal li a {
+    font-size: 18px;
+  }
+  .menu-principal li a.btn:hover {
+    filter: brightness(0.8);
+    border-bottom: none;
+    transition: .3s ease-in-out;
+  }
+
+  /* MOBILE - BOTÃO FECHAR DO MENU */
+  /* * posição corrigida: antes usava bottom: 43rem / left: 15.5rem (valores fixos que quebravam em outras telas) */
+  .menu-principal .menu-fechar {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    margin: 0;
+  }
+  .menu-fechar ion-icon,
+  .menu-fechar i {
+    font-size: 32px;
+    color: #0a49f7;
+    cursor: pointer;
+  }
+  .menu-fechar, #menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px;
+    border-radius: 8px;
+    outline: none;
+  }
+  /* * foco visível ajustado (o original usava outline de 22px com offset de 44px) */
+  .menu-fechar:focus-visible,
+  #menu:focus-visible {
+    outline: 3px solid #021959;
+    outline-offset: 4px;
+  }
+
+  /* MOBILE - BOTÕES LOGIN DENTRO DO MENU */
+  /* NOVO: seletor mais específico (.menu-principal .botoes-login) para vencer o margin-left: 12rem do style.css */
+  .menu-principal .botoes-login {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .btn-criar, .btn-entrar {
+    width: 100%;
+    margin-right: 0; /* * evita estourar a largura do menu */
+    transform: none;
+  }
+  .botoes-login a {
+    text-align: center;
+  }
+
+  /* MOBILE - DROPDOWNS DENTRO DO MENU */
+  .dropdown-content,
+  .dropdown-content.dd-idioma {
+    position: static;
+    margin: 0.5rem 0 0;
+    width: 100%;
+    transform: translate(var(--ajuste-x), var(--ajuste-y));
+    --ajuste-x: 0px;
+    --ajuste-y: 0px;
+  }
+
+  /* MOBILE - OVERLAR */
+  .menu-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  .menu-overlay.aberto{
+    display: block;
+  }
+  body.menu-travado{
+    overflow: hidden;
+  }
+
+  /* MOBILE - HERO / SLOGAN */
+  .slogan {
+    margin: 0 auto;
+    padding: 0 1.2rem;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+  .slogan a {
+    display: block;
+    font-size: 20px;
+  }
+  /* NOVO: no style.css o p do slogan tem max-width em vw (37.5vw), o que deixava o texto estreito no celular */
+  .slogan p {
+    max-width: 100%;
+  }
+
+  #botao-texto {
+    position: static;
+    text-align: center;
+    margin: 1.5rem auto;
+    width: fit-content;
+  }
+
+  /* * Imagem de background removida no mobile (mantida no desktop) */
+  #background {
+    display: none;
+  }
+
+  .bola_1, .bola_2, .bola_3, .bola_3line, .bola_4, .bola_4line {
+    display: none;
+  }
+
+  /* MOBILE - SOBRE */
+  .sobre h3 { font-size: 30px; padding: 0 0.5rem; }
+  .sobre p { font-size: 19px; padding: 0 1rem; max-width: 100%;}
+  .sobre { margin-top: -10rem; }
+
+  /* MOBILE - ITEMS (Romance/Aventura/Universidade) */
+  #items {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* NOVO: no style.css as imagens ficam no fluxo normal (não são mais position: absolute),
+     então a altura do card é automática e as imagens só precisam de largura */
+  .box-item {
+    width: 90%;
+    height: auto;
+    min-height: 0;
+    margin: 10px 0;
+  }
+  #romance img {
+    width: 340px;
+    height: auto;
+  }
+  #acao img {
+    width: 300px;
+    height: auto;
+  }
+  #estudos img {
+    width: 340px;
+    height: auto;
+  }
+  #items p {
+    padding: 0 0.5rem;
+  }
+  #items h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+  }
+
+  /* MOBILE - RECURSOS */
+  /* NOVO: no style.css a seção é um grid de 2 colunas; no celular vira bloco (empilhado) */
+  .sec-recursos {
+    display: block;
+    padding: 0;
+  }
+
+  .principal {
+    text-align: center;
+    margin-left: 0;
+    width: 100%;
+    padding: 0 1.2rem;
+    height: auto;
+    margin-top: 2rem;
+  }
+
+  /* * Botões dos recursos: compactos, centralizados e sempre em pares (2 por linha).
+     * Se a quantidade for ímpar, o último fica sozinho e centralizado. */
+  .recurso {
+    padding: 0 1rem;
+    margin-top: 1rem;
+    max-width: 100%;
+    gap: 0.5rem;
+  }
+  .recurso li {
+    flex: 0 0 calc(50% - 0.25rem);
+  }
+  .recurso li a {
+    position: static;
+    display: block;
+    width: 100%;
+    padding: 8px 6px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 92%;
+    height: auto;
+    min-height: 0; /* NOVO: o style.css define min-height: 400px */
+    padding: 1.5rem;
+    left: 0;
+    margin: 1.5rem auto;
+  }
+  .item-rec h3 { font-size: 20px; }
+  .item-rec p { font-size: 20px; }
+
+  /* * Exceção do centralizado: texto dos recursos (box da Experiência) alinhado à esquerda */
+  .container h3,
+  .container p {
+    text-align: left;
+  }
+
+  .seta { display: none; }
+
+  /* MOBILE - PT3 - PASSO A PASSO */
+  #items_pt3 {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  /* * Box principal e livros mantêm o visual da V2 (mesmas cores, borda, raio e imagens).
+     * Como a V2 não tinha ajuste para celular, só adaptei largura e posição para caber na tela. */
+  .boxprincipal_pt3 {
+    width: 92%;
+    height: 460px;
+    padding: 2rem 1rem;
+    margin: 0 auto 1.5rem;
+    justify-content: flex-start;
+  }
+  .boxprincipal_pt3 h2 br {
+    display: none;
+  }
+  .boxprincipal_pt3 h2 { font-size: 32px; }
+  /* NOVO: o style.css usa clamp() aqui (ficava em 18px no celular); volta para os 25px do teste */
+  .boxprincipal_pt3 h3 { font-size: 25px; }
+  .img_livro {
+    width: 120px;
+    margin: 0;
+    left: 1.5rem;
+    bottom: 1.5rem;
+  }
+  .img_livro2 {
+    width: 120px;
+    margin: 0;
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .box_passos {
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box1_pt3, .box2_pt3, .box3_pt3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* MOBILE - limita a largura */
+    height: auto;
+    padding: 1rem;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+  }
+  .texto_pt3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .titulo-linha { display: contents; }
+
+  .box_passos h3 {
+    order: 1;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 0 0.5rem; /* * sem margin-left, para ficar realmente centralizado */
+  }
+  .box_passos p {
+    order: 3;
+    font-size: 20px;
+    margin: 0 0 1rem; /* * sem margin-left/right, para ficar realmente centralizado */
+  }
+
+  .img_p3, .img_p3_1 {
+    width: 90px;
+    margin: 0 0 1rem 0;
+  }
+  .btn-criar-pt3, .btn-explorar-pt3 {
+    order: 2;
+    align-self: center;
+    position: static;
+    margin: 0 0 0.5rem 0;
+    padding: 12px 30px;
+  }
+
+  /* MOBILE - PLANOS */
+  .plan_txt {
+    font-size: 32px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+  .plan_container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .plan_free, .plan_medium, .plan_high {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 380px;
+    min-height: 100%;
+  }
+  .plan_free .gratis {
+    font-size: 2.5rem;
+  }
+  .plan_free p, .plan_medium p, .plan_high p {
+    font-size: 20px;
+    margin-bottom: 1.3rem;
+  }
+
+  /* MOBILE - EXPERIMENTE */
+  .experimente {
+    padding: 0 1.2rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem; /* * removido o margin-bottom: 17rem que empurrava a Parte 4 */
+  }
+  /* * NOVA MUDANÇA: pesos das fontes */
+  .experimente h3 {
+    font-size: 34px;
+    font-weight: 900;
+    font-family: "Open Sans", sans-serif;
+  }
+  .experimente h2 { font-size: 26px; }
+  .experimente a { font-size: 18px; }
+
+  /* MOBILE - PT4 */
+  /* * Reorganizada: .box_pt4 (estante) fica acima de .box2_pt4 (texto), formando um único cartão.
+     * Removidos os espaços fixos (25rem / 21rem / 24rem) que deixavam vazios enormes. */
+  #items_pt4 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .box_pt4, .box2_pt4 {
+    display: block;
+    width: 92%;
+  }
+  .box_pt4 {
+    height: 250px;
+    margin: 3rem 0 0;
+    border-radius: 30px 30px 0 0;
+  }
+  .estante {
+    width: auto;
+    max-width: 85%;
+    max-height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .box2_pt4 {
+    height: auto;
+    min-height: 0; /* NOVO: o style.css define min-height em vw */
+    margin: 0 0 2rem;
+    padding: 0.5rem 1.2rem 2rem; /* * mais compacto */
+    border-radius: 0 0 30px 30px;
+  }
+  .box2_pt4 h2 { font-size: 26px; margin-top: 0; margin-bottom: 0.5rem; }
+  .box2_pt4 h3 { font-size: 20px; margin-bottom: 0.5rem; }
+  .box2_pt4 p { font-size: 17px; }
+  .box2_pt4 p br { display: none; }
+  .btn_pt4 {
+    margin-top: 1.2rem;
+    padding: 14px 28px; /* * botão mais compacto */
+  }
+
+  /* MOBILE - FOOTER */
+  .footer-wave { height: 80px; }
+
+  .footer-conteudo {
+    margin: 0 auto; /* * zera o margin-left: 21.2rem do desktop (causava o espaço enorme) */
+    padding: 1rem 1.2rem 0;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-col { text-align: center; }
+  .footer-col ul { align-items: center; }
+  .box-apps { align-items: center; }
+
+  .footer-logo {
+    grid-column: 1 / -1;
+    order: -1;
+    text-align: center;
+  }
+  .footer-logo img {
+    position: static;
+    transform: none;
+    width: 110px;
+    height: auto;
+    display: inline-block;
+  }
+
+  .footer-social-daddy {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0 1rem;
+  }
+  .footer-social { justify-content: center; }
+
+  .footer-copy {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.8rem 1.2rem 2rem;
+  }
+  .footer-termos {
+    justify-content: center;
+  }
+
+  /* MOBILE - CONTRASTE: MENU LATERAL (SIDEBAR) */
+  /* MOBILE - fundo da sidebar */
+  body.alto-contraste .menu-principal {
+    background-color: #00002A !important;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.8) !important;
+    border-left: 1px solid #0084e9 !important;
+  }
+
+  /* MOBILE - ícone de fechar (X) */
+  body.alto-contraste .menu-fechar i,
+  body.alto-contraste .menu-fechar ion-icon {
+    color: #ffffff !important;
+  }
+
+  /* MOBILE - ícone do hambúrguer */
+  body.alto-contraste #icon-menu li i,
+  body.alto-contraste #icon-menu li ion-icon {
+    color: #ffffff !important;
+  }
+
+  /* MOBILE - fundo escurecido da tela */
+  body.alto-contraste .menu-overlay {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE (até 400px)
+========================================================= */
+@media (max-width: 400px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 22px; }
+
+  /* NOVO: altura automática e imagens menores nos cards (antes: height 440px e 170px) */
+  .box-item { height: auto; }
+  #romance img, #acao img, #estudos img {
+    width: 220px;
+    height: auto;
+  }
+
+  .plan_free, .plan_medium, .plan_high {
+    width: 100%;
+  }
+}
