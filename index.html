@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Gomes</title>
+    <!--    LOGO/ABA    -->
+    <link rel="icon" type="image/png" sizes="128x128" href="logo_aba.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    
+    
+    <!--    RECURSO     -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+</head>
+<body id="topo">
+    <section class="hero">
+             <div class="bola_1"></div>
+             <div class="bola_2"></div>
+            <header>
+        <nav id="nav-esq">
+            <!--    LOGO    -->
+            <div id="logo">
+                <img id="logo_default" src="logo_default.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+            </div> 
+            <!--    MENU HAMBURGUER    -->
+            <ul id="icon-menu">
+                <li id="menu"><i class="fa-solid fa-bars fa-2xl"></i></li>
+            </ul>
+            <!--    MENU    -->
+            <ul class="menu-principal">
+                <li class="menu-fechar"><i class="fa-solid fa-xmark fa-2xl"></i></li>
+                <li><a class="btn ativo" href="index.html">Home</a></li>                
+                <li><a class="btn" href="acervo.html">Acervo</a></li>                
+                <li><a class="btn" href="leitura.html">Leitura</a></li>
+                <li><a class="btn" href="ajuda.html">Ajuda</a></li>       
+                <li><a class="btn" href="sobre.html">O que Somos</a></li>
+                <!-- DROPDOWN IDIOMA  -->
+                <li class="dropdown-ac">
+                    <a id="btn-idioma" class="btn dropdown-btn-ac" href="#">Idioma<span id="seta-idioma"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content dd-idioma">
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('pt'); return false;">Pt</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('en'); return false;">En</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('es'); return false;">Es</a>
+                    </div>
+                </li>
+            <!--    DROPDOWN ACESSIBILIDADE    -->
+                <li class="dropdown-ac">
+                    <a id="btn-acessibilidade" class="btn dropdown-btn-ac" href="#">Acessibilidade<span id="seta-ac"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content">
+                        <a id="a+" class="btn-dd" href="#">A+</a>
+                        <a id="a-" class="btn-dd" href="#">A-</a>
+                        <a id="dark" class="btn-dd" href="#"><i id="darkmode" class="fa-solid fa-moon"></i>
+                        <i id="whitemode" class="fa-solid fa-sun"></i> </a>
+                    </div>
+                </li>             
+            <!--    BOTÕES LOGIN (só aparecem deslogado)    -->
+            <li class="botoes-login" id="botoes-login">
+                <a href="criar.html" class="btn-criar"><b>Criar</b></a>
+                <a href="login.html" class="btn-entrar"><b>Entrar</b></a>
+            </li>
+            <!--    USUÁRIO (só aparece logado)    -->
+            <li class="usuario oculto" id="usuario">
+                <button type="button" id="btn-usuario" class="btn-usuario" aria-label="Abrir menu da conta">
+                    <img id="foto-usuario" class="foto-usuario" src="perfil_basico.png" alt="Foto do perfil">
+                </button>
+                <div class="menu-usuario" id="menu-usuario">
+                    <p id="nome-usuario" class="nome-usuario"></p>
+                    <p id="plano-usuario" class="plano-usuario"></p>
+                    <button type="button" id="btn-sair" class="btn-sair"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+                </div>
+            </li>
+        </ul>
+        </nav> 
+        <div class="menu-overlay"></div> 
+        <!--    SLOGAN    -->
+        <div class="slogan">
+            <h1 class="ac"><b>Biblioteca Gomes</b></h1>
+            <h2 class="ac"> <b>Conhecimento que <br>chega até você!</b></h2>
+            <p class="ac">A <b>Biblioteca Gomes</b> conecta você ao conhecimento, 
+                reunindo conteúdos em um só lugar para tornar sua
+                experiência de leitura mais prática, rápida e acessível.</p>
+        </div>
+         <!--    BOTÃO TEXTO    -->
+
+        <div id="botao-texto">
+            <a class="ac" href="acervo.html">Conheça nossa<br>Biblioteca</a>
+        </div>
+                    <!--    BACKGROUND    -->
+            <div>
+                <img id="background" src="capafront.jpg.png" alt="">
+            </div>
+
+        </header>
+    </section>
+
+    <main>
+        <section class="sobre">
+            <h3 class="ac"><b>Uma biblioteca para todos os momentos!</b></h3>
+            <p class="ac">Seja para aprender algo novo, mergulhar em uma aventura ou simplesmente
+                encontrar uma boa história, a <b>Biblioteca Gomes</b> reúne diferentes gêneros em 
+                um único lugar. De romances e fantasias a livros de ciência e estudos, você 
+                encontra conteúdo para diferentes interesses, momentos e estilos de leitura.</p>
+        </section>
+    </main>
+<!--    SECTION/ITEMS    --> 
+    <section id="items">
+        <div id="romance" class="box-item">
+            <h3 class="ac"><b>Romance</b></h3>
+            <p class="ac">Narrativas centradas em <b>relacionamentos, sentimentos</b> e diferentes formas de 
+                <b>conexão entre personagens</b>. 
+                Histórias que <b>exploram encontros, conflitos</b> e a construção de vínculos.
+            </p>
+                <img src="romance.png" alt="romantico">
+        </div>
+        <div id="acao" class="box-item">
+            <h3 class="ac"><b>Aventura</b></h3>
+            <p class="ac">Histórias marcadas por <b>jornadas, conflitos, descobertas</b> e personagens enfrentando <b>situações 
+                inesperadas</b>. Uma seleção para quem gosta de <b>explorar novos lugares e acompanhar grandes desafios
+                dos protagonistas.</b></p>
+                <img src="acao.png" alt="ação">
+        </div>
+        <div id="estudos" class="box-item">
+            <h3 class="ac"><b>Universidade</b></h3>
+            <p class="ac" id="ass"> Conteúdos voltados para <b>estudantes</b>, 
+                com materiais para <b>estudos, pesquisas e aprofundamento</b> em diferentes áreas do conhecimento, 
+                atendendo também às necessidades <b>acadêmicas de faculdades, universidades e empresas</b>.
+
+            </p>
+                <img src="estudos.png" alt="estudo">
+        </div>
+        </section>
+    
+    <!--    RECURSOS    -->
+    <section class="sec-recursos">
+        <div class="principal">
+            <h3>Nossos Recursos</h3>
+            <h2><b>Uma biblioteca pensada para tornar o acesso à 
+                leitura mais simples e rápida</b></h2>
+            <p>Nossa biblioteca conta com diversos recursos desenvolvidos
+                para facilitar a navegação, personalizar a experiência e tornar a leitura mais
+                prática e agradável, seja para momentos de lazer, estudo ou pesquisa.</p>
+        </div>
+        <div>
+            <ul class="recurso">
+            <li><a class="btn" href="#exp">Experiência</a></li>
+            <li><a class="btn" href="#mark">Anotações e Marcadores</a></li>
+            <li><a class="btn" href="#multi">Multiplataforma</a></li>
+            <li><a class="btn" href="#ia">Recomendações Inteligentes</a></li>
+            <li><a class="btn" href="#biblio">Biblioteca Personalizada</a></li>
+            <li><a class="btn" href="#aces">Acessibilidade</a></li>
+            <li><a class="btn" href="#offline">Leitura Offline</a></li>
+
+            </ul>
+        </div>
+        <!--    RECURSOS CONTAINERS    -->
+        <div class="container">
+             <div id="exp" class="item-rec">
+            <h3>Experiência</h3>
+            <p>Toda a plataforma é projetada para oferecer uma experiência intuitiva e fluida, facilitando cada etapa da jornada do usuário,
+                desde a descoberta de novos conteúdos até a leitura.<br><br>
+                Com uma interface organizada e uma navegação simplificada, buscamos tornar o acesso à informação mais rápido,
+                agradável e eficiente em todos os momentos.</p>
+            </div> 
+           <div id="mark" class="item-rec">
+            <h3>Anotações e Marcadores</h3>
+            <p>Torne sua leitura mais produtiva. Marque páginas e trechos importantes, destaque informações relevantes e faça anotações 
+                diretamente durante a leitura.<br><br>
+                Organize suas ideias e registre informações importantes para facilitar consultas futuras, revisões e estudos, 
+                tornando o recurso especialmente útil para conteúdos acadêmicos e universitários.</p>
+            </div>
+            <div id="multi" class="item-rec">
+            <h3>Multiplataforma</h3>
+            <p>Acesse sua biblioteca de diferentes dispositivos sem abrir mão de uma experiência consistente. A plataforma foi desenvolvida 
+                para se adaptar a diferentes tamanhos de tela e proporcionar uma navegação confortável.<br><br>
+                Seja no computador, tablet ou celular, seus conteúdos permanecem acessíveis onde você estiver.</p>
+            </div>
+            <div id="ia" class="item-rec">
+            <h3>Recomendações Inteligentes</h3>
+            <p>Encontre novos conteúdos que combinam com seus interesses. Com o auxílio da Inteligência Artificial, a plataforma analisa seus 
+                hábitos de leitura, livros salvos e conteúdos pelos quais você demonstrou interesse para oferecer sugestões personalizadas.<br><br>
+                Quanto mais você utiliza a biblioteca, mais suas recomendações podem se adaptar aos seus interesses, ajudando você a descobrir 
+                novos livros e conteúdos.</p>
+            </div>
+            <div id="biblio" class="item-rec">
+            <h3>Biblioteca Personalizada</h3>
+            <p>Tenha sua própria biblioteca dentro da plataforma. Salve conteúdos que despertam seu interesse e encontre facilmente aquilo que
+                deseja ler novamente.<br><br>
+                Com recursos como favoritos e organização dos conteúdos, você pode construir uma biblioteca de acordo com seus interesses e 
+                manter tudo o que considera importante sempre ao seu alcance.</p>
+            </div>
+            <div id="aces" class="item-rec">
+            <h3>Acessibilidade</h3>
+            <p>O acesso ao conhecimento deve ser simples para todos. Por isso, a plataforma busca oferecer uma experiência acessível e confortável,
+                 considerando diferentes dispositivos, tamanhos de tela e necessidades de navegação.<br><br>
+                Cada elemento da interface é pensado para facilitar a leitura e tornar a utilização da biblioteca mais inclusiva.</p>
+            </div> 
+            <div id="offline" class="item-rec">
+            <h3>Leitura Offline</h3>
+            <p>Continue sua leitura mesmo sem conexão com a internet. Baixe seus livros e conteúdos para acessá-los posteriormente de forma prática,
+                 garantindo que sua biblioteca esteja disponível sempre que você precisar.<br><br>
+                Ideal para momentos em que o acesso à internet é limitado, permitindo que você continue seus estudos ou sua leitura de onde estiver.</p>
+            </div> 
+        </div>
+
+    <div class="seta"></div>
+    <div class="square"></div>
+    </section>
+     <!--    PT3     -->
+    <section class="hero">
+             <div class="bola_3"></div>
+             <div class="bola_3line"></div>
+             <div class="bola_4"></div>
+             <div class="bola_4line"></div>
+    </section>
+    <section id="items_pt3" >
+        <div class="boxprincipal_pt3">
+            <h3>GUIA RÁPIDO</h3>
+            <h2>3º Passos simples<br> para usar a<br> <span style="color: #1465C1;"><b>Biblioteca Gomes</b></span></h2>
+            <img id="livro1_default" class="img_livro" src="livros.png" alt="livros">
+            <img id="livro2_default" class="img_livro2" src="livro_open.png" alt="livro_aberto">
+            <img id="livro1_darkmode" class="img_livro" src="livros_white.png" alt="livros">
+            <img id="livro2_darkmode" class="img_livro2" src="livro_open_white.png" alt="livro_aberto">
+        </div>
+        <div class="box_passos">
+            <div class="box1_pt3">
+                <img class="img_p3_1" src="criar.png" alt="criar">
+                <div class="texto_pt3">
+                    <div class="titulo-linha">
+                        <h3 ><b>1º Crie sua conta <i class="fa-solid fa-right-long"></i></b></h3>
+                        <a href="criar.html" class="btn-criar-pt3"><b>Criar</b></a>
+                    </div>
+                    <p>Cadastre-se gratuitamente para começar a utilizar a <b>Biblioteca Gomes</b>.</p>
+                </div>
+            </div>
+            <div class="box2_pt3">
+                <img class="img_p3" src="escolher.png" alt="escolher">
+                <div class="texto_pt3">
+                    <div class="titulo-linha">
+                        <h3><b>2º Explore o acervo <i class="fa-solid fa-right-long"></i></b></h3>
+                        <a href="acervo.html" class="btn-explorar-pt3"><b>Explorar</b></a>
+                    </div>
+                    <p>Encontre livros de diferentes gêneros e áreas do conhecimento.</p>
+                </div>
+            </div>
+            <div class="box2_pt3">
+                <img class="img_p3" src="lendo.png" alt="lendo">
+                <div class="texto_pt3">
+                    <h3><b>3º Escolha sua leitura</b></h3>
+                    <p>Acesse seu livro e aproveite a leitura onde estiver.</p>
+                </div>
+            </div> 
+        </div>
+    </section>
+    <!--    PLANOS     -->
+    <h3 class="plan_txt"><b>ESCOLHA SEU PLANO</b></h3>   
+    <section class="plan_container">
+        <div id="plano1" class="plan_free">
+            <div class="plan_free_top">
+                <h2>Basic</h2>
+            </div>
+                <h3 class="texto-df">
+                <div class="container-preco">
+                    <p class="gratis"><span style="color: #1465C1;">GRÁTIS</span></p>
+                </div>      
+            </h3>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Acesso Limitado ao acervo</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Recomendações inteligentes Básicas</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Leitura online</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Biblioteca pessoal</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Anotações e marcadores</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Favoritos</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Histórico de leitura</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-check"></i> Acesso ao acervo</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-xmark"></i> Leitura offline</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-xmark"></i> Novos lançamentos</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-xmark"></i> Conteúdos exclusivos</span></p>
+            <p><span style="color: black;"><i class="fa-solid fa-xmark"></i> Acesso antecipado a novidades</span></p>
+            <a href="#" class="btn-plan"><b>ADQUIRIR</b></a>
+        </div>
+
+        <div id="plano2" class="plan_medium">
+            <div class="plan_medium_top">
+                <h2><span style="color: #1465C1;">Standard</span></h2>
+            </div>
+                <h3 class="texto-df">
+                <div class="container-preco">
+                    <span class="menor"><span style="color: #fff;">R$</span></span>
+                    <span class="valor"><span style="color: #fff;">27</span></span>
+                    <span class="menor"><span style="color: #fff;">/MÊS</span></span>
+                </div> 
+            </h3>
+            <p><i class="fa-solid fa-check"></i> Acesso Ampliado ao acervo</p>
+            <p><i class="fa-solid fa-check"></i> Recomendações inteligentes</p>
+            <p><i class="fa-solid fa-check"></i> Leitura online</p>
+            <p><i class="fa-solid fa-check"></i> Biblioteca pessoal</p>
+            <p><i class="fa-solid fa-check"></i> Anotações e marcadores</p>
+            <p><i class="fa-solid fa-check"></i> Favoritos</p>
+            <p><i class="fa-solid fa-check"></i> Histórico de leitura</p>
+            <p><i class="fa-solid fa-check"></i> Acesso ao acervo</p>
+            <p><i class="fa-solid fa-check"></i> Leitura offline</p>      
+            <p><i class="fa-solid fa-check"></i> Novos lançamentos</p>
+            <p><i class="fa-solid fa-xmark"></i> Conteúdos exclusivos</p>
+            <p><i class="fa-solid fa-xmark"></i> Acesso antecipado a novidades</p>
+            <a href="#" class="btn-plan-medium"><b>ADQUIRIR</b></a>
+        </div>
+
+        <div id="plano3" class="plan_high">
+            <div class="plan_high_top">
+                <h2>Premium</h2>
+            </div>
+                <h3 class="texto-df">
+                <div class="container-preco">
+                    <span class="menor">R$</span>
+                    <span class="valor">39</span>
+                    <span class="menor">/MÊS</span>
+                </div>      
+            </h3>
+            <p><i class="fa-solid fa-check"></i> Acesso Completo ao acervo</p>
+            <p><i class="fa-solid fa-check"></i> Recomendações inteligentes Avançadas</p>
+            <p><i class="fa-solid fa-check"></i> Leitura online</p>
+            <p><i class="fa-solid fa-check"></i> Biblioteca pessoal</p>
+            <p><i class="fa-solid fa-check"></i> Anotações e marcadores</p>
+            <p><i class="fa-solid fa-check"></i> Favoritos</p>
+            <p><i class="fa-solid fa-check"></i> Histórico de leitura</p>
+            <p><i class="fa-solid fa-check"></i> Acesso ao acervo</p>
+            <p><i class="fa-solid fa-check"></i> Leitura offline</p>      
+            <p><i class="fa-solid fa-check"></i> Novos lançamentos</p>
+            <p><i class="fa-solid fa-check"></i> Conteúdos exclusivos</p>
+            <p><i class="fa-solid fa-check"></i> Acesso antecipado a novidades</p>
+            <a href="#" class="btn-plan"><b>ADQUIRIR</b></a>
+        </div>
+    </section>
+    <!--    EXPERIMENTE    -->
+    <section>
+        <div class="experimente">
+            <h3>EXPERIMENTE O PREMIUM POR 30 DIAS</h3>  
+            <h2>Conheça a <span style="color: #1465C1;">Biblioteca Gomes</span> gratuitamente e descubra tudo o que ela oferece.</h2>
+            <a href="#" class="btn-experimente"><b>Começar teste grátis</b></a>
+        </div>
+    </section>
+         <!--    PT4    -->
+    <section id="items_pt4" >
+        <div id="pt4" class="box_pt4">
+            <img class="estante" src="estante_livros.png" alt="estante_livros">
+        </div>
+        <div class="box2_pt4">
+            <h2><b>SUA PRÓXIMA LEITURA TE ESPERA</b></h2>
+            <h3>Entediado? Sem nada para fazer?</h3>
+            <p>A fim de se envolver em uma nova narrativa?<br>
+               Perfeito! O que você procura está a um <br>clique de distância</p>
+            <a href="acervo.html" class="btn_pt4">Explorar</a>
+        </div>
+    </section>
+       <!--    FINAL    -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,90 C360,-10 1080,190 1440,70 L1440,150 L0,150 Z"></path>
+            </svg>
+        </div>
+        <div class="footer-conteudo">
+            <div class="footer-col">
+                <h3>Planos</h3>
+                <ul>
+                    <li><a href="index.html#plano1">Basic</a></li>
+                    <li><a href="index.html#plano2">Standard</a></li>
+                    <li><a href="index.html#plano3">Premium</a></li>
+                </ul>
+            </div>
+        <div class="footer-col">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="sobre.html">Sobre nós</a></li>
+                <li><a href="ajuda.html#contato">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-logo" class="footer-col">
+                <img id="logo_default" src="logo_default.png" alt="Logo">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo">
+        </div>
+        <div class="footer-col">
+            <h3>Suporte</h3>
+            <ul>
+                <li><a href="ajuda.html#faq">Central de ajuda</a></li>
+                <li><a href="ajuda.html#termos">Termos de uso</a></li>
+                <li><a href="ajuda.html#privacidade">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Baixe nosso app</h3>
+            <div class="box-apps">
+                <a href="https://apps.apple.com/br/developer/apple/id284417353?mt=12" target="_blank" class="app">
+                    <span id="icon" style="color: #fff;"><i class="fa-brands fa-apple fa-xl"></i></span>
+                    <span>
+                    <small>Disponível na</small>
+                         App Store </span>
+                </a> 
+                <a href="https://play.google.com/store/games?hl=pt_BR" target="_blank" class="app">
+                    <span id="icon" style="color: #fff"><i class="fa-brands fa-google-play fa-xl"></i></span>
+                    <span>
+                    <small>Disponível no</small>
+                    Google Play</span>
+                </a>
+            </div>
+        </div>
+        </div>
+  <div class="footer-social-daddy">
+    <h3>Siga-nos</h3>
+    <div class="footer-social">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-lg"></i></a>
+      <a href="https://br.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in fa-lg"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+      <a href="https://x.com/?lang=pt" target="_blank"><i class="fa-brands fa-x-twitter fa-lg"></i></a> 
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    <p>&copy; 2026 Biblioteca Gomes. Todos os direitos reservados.</p>
+    <div class="footer-termos">
+      <a href="ajuda.html#termos">Termos</a>
+      <a href="ajuda.html#privacidade">Privacidade</a>
+      <a href="ajuda.html#cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+    <a href="#topo" id="botao-up"><i class="fa-solid fa-arrow-up"></i></a>
+    <!-- RECURSO -->
+    <div id="google_translate_element" style="display: none;"></div>
+    <script src="script.js"></script>
+    <script src="conta.js"></script>
+</body>
+</html>

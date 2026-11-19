@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acervo</title>
+    <!--    LOGO/ABA    -->
+    <link rel="icon" type="image/png" sizes="128x128" href="logo_aba.png">
+    <!-- Recursos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="acervo.css">
+    <link rel="stylesheet" href="acervo-mobile.css">
+</head>
+<body id="topo">
+<header>
+    <nav id="nav-esq">
+        <!--    LOGO    -->
+        <div id="logo">
+            <img id="logo_default" src="logo_default.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+            <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+        </div>
+        <!--    MENU HAMBURGUER    -->
+        <ul id="icon-menu">
+            <li id="menu"><i class="fa-solid fa-bars fa-2xl"></i></li>
+        </ul>
+        <!--    MENU    -->
+        <ul class="menu-principal">
+            <li class="menu-fechar"><i class="fa-solid fa-xmark fa-2xl"></i></li>
+            <li><a class="btn" href="index.html">Home</a></li>
+            <li><a class="btn ativo" href="acervo.html">Acervo</a></li>
+            <li><a class="btn" href="leitura.html">Leitura</a></li>
+            <li><a class="btn" href="ajuda.html">Ajuda</a></li>
+            <li><a class="btn" href="sobre.html">O que Somos</a></li>
+            <!--    DROPDOWN IDIOMA    -->
+            <li class="dropdown-ac">
+                <a id="btn-idioma" class="btn dropdown-btn-ac" href="#">Idioma<span id="seta-idioma"><i class="fa-solid fa-caret-down"></i></span></a>
+                <div class="dropdown-content dd-idioma">
+                    <a class="btn-dd" href="#" onclick="mudarIdioma('pt'); return false;">Pt</a>
+                    <a class="btn-dd" href="#" onclick="mudarIdioma('en'); return false;">En</a>
+                    <a class="btn-dd" href="#" onclick="mudarIdioma('es'); return false;">Es</a>
+                </div>
+            </li>
+            <!--    DROPDOWN ACESSIBILIDADE    -->
+            <li class="dropdown-ac">
+                <a id="btn-acessibilidade" class="btn dropdown-btn-ac" href="#">Acessibilidade<span id="seta-ac"><i class="fa-solid fa-caret-down"></i></span></a>
+                <div class="dropdown-content">
+                    <a id="a+" class="btn-dd" href="#">A+</a>
+                    <a id="a-" class="btn-dd" href="#">A-</a>
+                    <a id="dark" class="btn-dd" href="#"><i id="darkmode" class="fa-solid fa-moon"></i>
+                    <i id="whitemode" class="fa-solid fa-sun"></i> </a>
+                </div>
+            </li>
+            <!--    BOTÕES LOGIN (só aparecem deslogado)    -->
+            <li class="botoes-login" id="botoes-login">
+                <a href="criar.html" class="btn-criar"><b>Criar</b></a>
+                <a href="login.html" class="btn-entrar"><b>Entrar</b></a>
+            </li>
+            <!--    USUÁRIO (só aparece logado)    -->
+            <li class="usuario oculto" id="usuario">
+                <button type="button" id="btn-usuario" class="btn-usuario" aria-label="Abrir menu da conta">
+                    <img id="foto-usuario" class="foto-usuario" src="perfil_basico.png" alt="Foto do perfil">
+                </button>
+                <div class="menu-usuario" id="menu-usuario">
+                    <p id="nome-usuario" class="nome-usuario"></p>
+                    <p id="plano-usuario" class="plano-usuario"></p>
+                    <button type="button" id="btn-sair" class="btn-sair"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu-overlay"></div>
+</header>
+    <!--    BANNER + BUSCA + CATEGORIAS    -->
+    <section class="banner">
+        <p>SUA PRÓXIMA DESCOBERTA COMEÇA AQUI</p>
+        <h1>Explore o Acervo</h1>
+        <p id="banner-slogan">Novas ideias, grandes referências. Encontre o livro que move você.</p>
+
+        <div class="busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="busca" placeholder="Busque por título, autor ou assunto">
+            <button type="button" id="btn-pesquisa">Buscar</button>
+        </div>
+    <!--    FILTRO    -->
+                <div class="categorias">
+            <button type="button" class="chip ativo" data-cat="Todos">Todos</button>
+            <button type="button" class="chip" data-cat="Acadêmico">Acadêmico</button>
+            <button type="button" class="chip" data-cat="Lazer">Lazer</button>
+            <button type="button" class="chip" data-cat="Fantasia">Fantasia</button>
+            <button type="button" class="chip" data-cat="Distopia">Distopia</button>
+            <button type="button" class="chip" data-cat="Mistério">Mistério</button>
+            <button type="button" class="chip" data-cat="Thriller">Thriller</button>
+            <button type="button" class="chip" data-cat="Suspense">Suspense</button>
+            <button type="button" class="chip" data-cat="Terror">Terror</button>
+            <button type="button" class="chip" data-cat="Romance">Romance</button>
+            <button type="button" class="chip" data-cat="Ação">Ação</button>
+            <button type="button" class="chip" data-cat="Aventura">Aventura</button>
+            <button type="button" class="chip" data-cat="Drama">Drama</button>
+            <button type="button" class="chip" data-cat="Clássicos">Clássicos</button>
+        </div>
+    </section>
+
+    <!--    LISTA DE LIVROS    -->
+    <main class="acervo">
+        <div class="acervo-topo">
+            <div>
+                <h2>Conhecimento para cada caminho</h2>
+                <p id="contador"></p>
+            </div>
+            <!-- DROPDOWN FILTRO -->
+<div class="dropdown-customizado">
+    <button type="button" class="btn-ordenar-principal" id="btn-ordenar">
+        <span id="texto-ordenar">Ordenar por</span>
+        <span id="seta-ordenar"><i class="fa-solid fa-caret-down"></i></span>
+    </button>
+
+    <div class="dropdown-conteudo" id="ordenar">
+        <a href="#" data-valor="relevantes">Mais Relevantes</a>
+        <a href="#" data-valor="recentes">Mais Recentes</a>
+        <a href="#" data-valor="populares">Populares</a>
+        <a href="#" data-valor="avaliados">Melhor Avaliados</a>
+        <a href="#" data-valor="titulo">Título (A-Z)</a>
+        <a href="#" data-valor="autor">Autor (A-Z)</a>
+    </div>
+</div>
+        </div>
+
+        <div class="grade-livros" id="grade-livros"></div>
+        <p class="rodape-lista" id="rodape-lista"></p>
+    </main>
+
+        <!--    FINAL    -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,90 C360,-10 1080,190 1440,70 L1440,150 L0,150 Z"></path>
+            </svg>
+        </div>
+        <div class="footer-conteudo">
+            <div class="footer-col">
+                <h3>Planos</h3>
+                <ul>
+                    <li><a href="index.html#plano1">Basic</a></li>
+                    <li><a href="index.html#plano2">Standard</a></li>
+                    <li><a href="index.html#plano3">Premium</a></li>
+                </ul>
+            </div>
+        <div class="footer-col">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="sobre.html">Sobre nós</a></li>
+                <li><a href="ajuda.html#contato">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-logo" class="footer-col">
+                <img id="logo_default" src="logo_default.png" alt="Logo">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo">
+        </div>
+        <div class="footer-col">
+            <h3>Suporte</h3>
+            <ul>
+                <li><a href="ajuda.html">Central de ajuda</a></li>
+                <li><a href="ajuda.html#termos">Termos de uso</a></li>
+                <li><a href="ajuda.html#privacidade">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Baixe nosso app</h3>
+            <div class="box-apps">
+                <a href="https://apps.apple.com/br/developer/apple/id284417353?mt=12" target="_blank" class="app">
+                    <span id="icon" style="color: #fff;"><i class="fa-brands fa-apple fa-xl"></i></span>
+                    <span>
+                    <small>Disponível na</small>
+                         App Store </span>
+                </a> 
+                <a href="https://play.google.com/store/games?hl=pt_BR" target="_blank" class="app">
+                    <span id="icon" style="color: #fff"><i class="fa-brands fa-google-play fa-xl"></i></span>
+                    <span>
+                    <small>Disponível no</small>
+                    Google Play</span>
+                </a>
+            </div>
+        </div>
+        </div>
+  <div class="footer-social-daddy">
+    <h3>Siga-nos</h3>
+    <div class="footer-social">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-lg"></i></a>
+      <a href="https://br.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in fa-lg"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+      <a href="https://x.com/?lang=pt" target="_blank"><i class="fa-brands fa-x-twitter fa-lg"></i></a> 
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    <p>&copy; 2026 Biblioteca Gomes. Todos os direitos reservados.</p>
+    <div class="footer-termos">
+      <a href="ajuda.html#termos">Termos</a>
+      <a href="ajuda.html#privacidade">Privacidade</a>
+      <a href="ajuda.html#cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+    <a href="#topo" id="botao-up"><i class="fa-solid fa-arrow-up"></i></a>
+    <div id="google_translate_element" style="display: none;"></div>
+    <script src="script.js"></script>
+    <script src="livros.js"></script>
+    <script src="conta.js"></script>
+    <script src="acervo.js"></script>
+</body>
+</html>

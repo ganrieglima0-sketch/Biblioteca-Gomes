@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Leitor</title>
+    <!--    LOGO/ABA    -->
+    <link rel="icon" type="image/png" sizes="128x128" href="logo_aba.png">
+    <!-- Recursos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="leitura.css">
+</head>
+<body id="topo">
+    <header>
+        <nav id="nav-esq">
+            <!--    LOGO    -->
+            <div id="logo">
+                <a href="#"><img class="logo-claro" src="logo_default.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;"></a>
+                <a href="#"><img class="logo-escuro" src="logo_darkmode.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;"></a>
+            </div>
+            <!--    MENU HAMBURGUER    -->
+            <ul id="icon-menu">
+                <li id="menu"><i class="fa-solid fa-bars fa-2xl"></i></li>
+            </ul>
+            <!--    MENU    -->
+            <ul class="menu-principal">
+                <li class="menu-fechar"><i class="fa-solid fa-xmark fa-2xl"></i></li>
+                <li><a class="btn" href="acervo.html">Acervo</a></li>
+                <li><a class="btn ativo" href="leitura.html">Leitura</a></li>
+                <!--    DROPDOWN IDIOMA    -->
+                <li class="dropdown-ac">
+                    <a id="btn-idioma" class="btn dropdown-btn-ac" href="#">Idioma<span id="seta-idioma"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content dd-idioma">
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('pt'); return false;">Pt</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('en'); return false;">En</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('es'); return false;">Es</a>
+                    </div>
+                </li>
+                <!--    DROPDOWN ACESSIBILIDADE    -->
+                <li class="dropdown-ac">
+                    <a id="btn-acessibilidade" class="btn dropdown-btn-ac" href="#">Acessibilidade<span id="seta-ac"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content">
+                        <a id="a+" class="btn-dd" href="#">A+</a>
+                        <a id="a-" class="btn-dd" href="#">A-</a>
+                        <a id="dark" class="btn-dd" href="#"><i id="darkmode" class="fa-solid fa-moon"></i>
+                        <i id="whitemode" class="fa-solid fa-sun"></i></a>
+                    </div>
+                </li>
+                <!--    USUÁRIO     -->
+                <li class="usuario oculto" id="usuario">
+                    <button type="button" id="btn-usuario" class="btn-usuario" aria-label="Abrir menu da conta">
+                        <img id="foto-usuario" class="foto-usuario" src="perfil_basico.png" alt="Foto do perfil">
+                    </button>
+                    <div class="menu-usuario" id="menu-usuario">
+                        <p id="nome-usuario" class="nome-usuario"></p>
+                        <p id="plano-usuario" class="plano-usuario"></p>
+                        <button type="button" id="btn-sair" class="btn-sair"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-overlay"></div>
+    </header>
+    <main class="leitor">
+        <!--    BOAS-VINDAS    -->
+        <section class="boas-vindas">
+            <p class="chamada">SUA BIBLIOTECA, NO SEU RITMO</p>
+            <h1 id="saudacao">Olá! Vamos continuar?</h1>
+            <p class="sub">Retome suas leituras e descubra o seu próximo livro favorito.</p>
+
+            <!--    BUSCA + BOTÃO    -->
+            <div class="busca-linha">
+                <div class="busca-leitor">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="busca-leitor" placeholder="Busque por título, autor ou assunto">
+                </div>
+                <a href="acervo.html" class="btn-explorar">Explorar Acervo</a>
+            </div>
+        </section>
+        <div class="layout-leitor">
+            <div class="coluna-principal">
+                <!--    CONTINUE LENDO    -->
+                <section class="bloco">
+                    <div class="bloco-topo">
+                        <h2>Continue Lendo</h2>
+                        <div class="bloco-acoes">
+                            <a href="#" class="link-azul" id="ver-historico">Ver histórico <i class="fa-solid fa-arrow-right"></i></a>
+                            <button type="button" class="seta-car" id="car-anterior" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button type="button" class="seta-car" id="car-proximo" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="carrossel" id="carrossel"></div>
+                    <div class="pontos" id="pontos"></div>
+                </section>
+
+                <!--    RECOMENDADOS    -->
+                <section class="bloco">
+                    <div class="bloco-topo">
+                        <div>
+                            <h2>Recomendados para você</h2>
+                            <p class="bloco-sub">Escolhidos a partir dos seus interesses.</p>
+                        </div>
+                        <a href="acervo.html" class="link-azul">Explorar acervo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="grade-reco" id="grade-reco"></div>
+                </section>
+            </div>
+
+            <!--    COLUNA LATERAL    -->
+            <aside class="coluna-lateral">
+                <div class="card-lateral">
+                    <h3>Sua biblioteca</h3>
+                    <p>Tudo o que você quer acessível</p>
+                    <ul class="lista-biblioteca">
+                        <li data-lista="salvos" tabindex="0" role="button">
+                            <span class="icone-bib"><i class="fa-regular fa-bookmark"></i></span>
+                            <span class="rotulo">Livros Salvos</span>
+                            <strong id="qtd-salvos">0</strong>
+                        </li>
+                        <li data-lista="favoritos" tabindex="0" role="button">
+                            <span class="icone-bib"><i class="fa-regular fa-heart"></i></span>
+                            <span class="rotulo">Favoritos</span>
+                            <strong id="qtd-favoritos">0</strong>
+                        </li>
+                        <li data-lista="anotacoes" tabindex="0" role="button">
+                            <span class="icone-bib"><i class="fa-regular fa-note-sticky"></i></span>
+                            <span class="rotulo">Anotações</span>
+                            <strong id="qtd-anotacoes">0</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-baixados">
+                    <i class="fa-solid fa-download"></i>
+                    <h3>Livros baixados</h3>
+                    <p id="resumo-baixados">Nenhum livro baixado ainda.</p>
+                    <button type="button" class="btn-baixados" data-lista="baixados">Ver baixados <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="card-assine">
+                    <span class="icone-assine"><i class="fa-solid fa-check"></i></span>
+                    <h3>Leitura sem limites</h3>
+                    <p>Assine e tenha acesso ilimitado ao acervo completo.</p>
+                    <a href="index.html#plano2" class="btn-assine">Assinar agora <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="card-citacao">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Um pouco a cada dia.</h3>
+                    <p>Reserve alguns minutos por dia para a leitura. Pequenos hábitos constroem grandes conhecimentos.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+       <!--    FINAL    -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,90 C360,-10 1080,190 1440,70 L1440,150 L0,150 Z"></path>
+            </svg>
+        </div>
+        <div class="footer-conteudo">
+            <div class="footer-col">
+                <h3>Planos</h3>
+                <ul>
+                    <li><a href="index.html#plano1">Basic</a></li>
+                    <li><a href="index.html#plano2">Standard</a></li>
+                    <li><a href="index.html#plano3">Premium</a></li>
+                </ul>
+            </div>
+        <div class="footer-col">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="sobre.html">Sobre nós</a></li>
+                <li><a href="ajuda.html#contato">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-logo" class="footer-col">
+                <img id="logo_default" src="logo_default.png" alt="Logo">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo">
+        </div>
+        <div class="footer-col">
+            <h3>Suporte</h3>
+            <ul>
+                <li><a href="ajuda.html#faq">Central de ajuda</a></li>
+                <li><a href="ajuda.html#termos">Termos de uso</a></li>
+                <li><a href="ajuda.html#privacidade">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Baixe nosso app</h3>
+            <div class="box-apps">
+                <a href="https://apps.apple.com/br/developer/apple/id284417353?mt=12" target="_blank" class="app">
+                    <span id="icon" style="color: #fff;"><i class="fa-brands fa-apple fa-xl"></i></span>
+                    <span>
+                    <small>Disponível na</small>
+                         App Store </span>
+                </a> 
+                <a href="https://play.google.com/store/games?hl=pt_BR" target="_blank" class="app">
+                    <span id="icon" style="color: #fff"><i class="fa-brands fa-google-play fa-xl"></i></span>
+                    <span>
+                    <small>Disponível no</small>
+                    Google Play</span>
+                </a>
+            </div>
+        </div>
+        </div>
+  <div class="footer-social-daddy">
+    <h3>Siga-nos</h3>
+    <div class="footer-social">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-lg"></i></a>
+      <a href="https://br.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in fa-lg"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+      <a href="https://x.com/?lang=pt" target="_blank"><i class="fa-brands fa-x-twitter fa-lg"></i></a> 
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    <p>&copy; 2026 Biblioteca Gomes. Todos os direitos reservados.</p>
+    <div class="footer-termos">
+      <a href="ajuda.html#termos">Termos</a>
+      <a href="ajuda.html#privacidade">Privacidade</a>
+      <a href="ajuda.html#cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+    <!--    PAINEL (HISTÓRICO, SALVOS, FAVORITOS, ANOTAÇÕES, BAIXADOS)    -->
+    <div class="modal" id="modal">
+        <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+            <div class="modal-topo">
+                <h2 id="modal-titulo"></h2>
+                <button type="button" class="modal-fechar" id="modal-fechar" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-conteudo" id="modal-conteudo">
+                <!--    FORMULÁRIO DE ANOTAÇÃO (só aparece em Anotações)    -->
+                <form class="form-anotacao" id="form-anotacao" hidden>
+                    <select id="select-livro-anotacao" aria-label="Livro da anotação"></select>
+                    <textarea id="texto-anotacao" maxlength="200" placeholder="Escreva sua anotação..."></textarea>
+                    <div class="form-linha">
+                        <span class="form-erro" id="form-erro"></span>
+                        <button type="submit" class="btn-ler">Adicionar</button>
+                    </div>
+                </form>
+                <div id="modal-corpo"></div>
+                <div id="modal-extra"></div>
+            </div>
+            <div class="modal-paginas" id="modal-paginas"></div>
+        </div>
+    </div>
+
+    <a href="#topo" id="botao-up"><i class="fa-solid fa-arrow-up"></i></a>
+    <!-- RECURSO -->
+    <div id="google_translate_element" style="display: none;"></div>
+    <script src="livros.js"></script>
+    <script src="estado.js"></script>
+    <script src="conta.js"></script>
+    <script src="leitura.js"></script>
+</body>
+</html>

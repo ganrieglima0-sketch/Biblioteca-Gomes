@@ -1,0 +1,89 @@
+/* =========================================================
+   PAINÉIS DA CENTRAL DE AJUDA
+   (carregar DEPOIS do ajuda.css)
+   ========================================================= */
+
+/* só o painel ativo aparece */
+.painel { display: none; }
+.painel.ativo { display: block; }
+
+/* =========================================================
+   TEXTOS LEGAIS (termos, privacidade, cookies)
+   Mesmo visual do FAQ: títulos em Inter azul-escuro,
+   texto em Open Sans cinza
+   ========================================================= */
+.texto-legal {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.texto-legal h3 {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #0b1f4d;
+	margin: 1.8rem 0 0.6rem;
+}
+
+.texto-legal p,
+.texto-legal li {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1rem;
+	line-height: 1.7;
+	color: #5a6482;
+}
+
+.texto-legal p {
+	margin: 0 0 0.8rem;
+}
+
+.texto-legal ul {
+	margin: 0 0 1rem;
+	padding-left: 1.3rem;
+}
+
+.texto-legal li {
+	margin-bottom: 0.45rem;
+}
+
+.texto-legal li::marker {
+	color: #1465C1;
+}
+
+.texto-legal b,
+.texto-legal strong {
+	font-weight: 600;
+	color: #0b1f4d;
+}
+
+/* links dentro dos painéis */
+.texto-legal a,
+.conteudo-texto a {
+	font-family: inherit;
+	color: #1465C1;
+	font-weight: 600;
+	text-decoration: none;
+}
+.texto-legal a:hover,
+.conteudo-texto a:hover {
+	text-decoration: underline;
+}
+
+/* =========================================================
+   ABA CONTATO
+   ========================================================= */
+.contato-info {
+	list-style: none;
+	margin: 1rem 0 1.5rem;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+.contato-info li {
+	font-family: 'Open Sans', sans-serif;
+	color: #5a6482;
+}
+.contato-info i {
+	color: #1465C1;
+	margin-right: 0.5rem;
+}

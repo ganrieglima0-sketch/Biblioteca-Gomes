@@ -1,0 +1,297 @@
+/* ---------------------------------------------------------
+   BREAKPOINT 1: até 1440px (notebooks grandes / monitores 1440p menores)
+   --------------------------------------------------------- */
+@media (max-width: 1440px) {
+
+  /* HEADER / NAV */
+  .botoes-login {
+    margin-left: 0;
+  }
+
+
+
+  /*---- BACKGROUNDS ----*/
+  #background{
+	width: 100%;
+	height: 100%;
+	max-width: 76%  }
+  .bola_1, .bola_2 {
+    width: 700px;
+    height: 700px;
+  }
+  .bola_1 { right: -350px; }
+  .bola_2 { left: -300px; }
+
+    /*---- SLOGAN ---- */
+
+  .slogan{
+    margin-left: 3rem;
+    height: 100%;
+}
+  .slogan a{
+    max-width: 600px;
+}
+  #botao-texto {
+    position: absolute;
+    width: auto;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+    margin-left: -3rem;
+}
+
+  /* SECTION ITEMS (Romance/Aventura/Universidade) */
+  .box-item {
+    width: 700px;
+    height: 550px;
+  }
+  #romance img{
+    width: 340px;
+    height: 340px;
+    top: 22px;
+  }
+ #acao img{
+	  height: 290px;
+	  width: 300px;
+    top: 22px;
+
+  }
+  #estudos img {
+    height: 290px;
+    width: 340px;
+    top: 35px;
+  }
+  #items p {
+    top: 15.5rem;
+    padding: 0 1rem;
+  }
+  #items h3{
+  font-family: "Open Sans", sans-serif;
+	font-weight: 800;
+  font-size: 35px;
+}
+
+  /*---- RECURSOS ----*/
+  .principal {
+    margin-left: 3rem;
+  }
+  .seta{
+	position: absolute;
+	width: 230px;
+	height: 300px;
+	top: 1565px;
+	left: -250px;
+	margin-top: 3rem;
+	z-index: -1;
+}
+  .recurso{
+	  gap: 0.5rem;
+	  max-width: 700px;
+	  margin: 0 auto;
+    margin-top: 2rem;
+}
+  .container {
+    align-items: flex-start;
+    left: 0;
+    width: 92%;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    margin-top: -120px;
+    }
+  
+  /* PT3 - passo a passo */
+  .boxprincipal_pt3 {
+    margin-left: 2rem;
+    width: 50%;
+  }
+    .img_livro{
+	  position: absolute;
+	  width: 180px;
+	  margin-left: 3rem ;
+	  margin-top: 24.5rem;
+}
+  .img_livro2{
+	  position: absolute;
+	  width: 180px;
+	  margin-left: 21rem ;
+	  margin-top: 25rem;
+}
+  .boxprincipal_pt3 h3 {
+	  font-weight: 800;
+    margin-top: -2rem;
+}
+
+  .boxprincipal_pt3 h2 {
+	  font-weight: 800;
+	  margin-bottom: 2rem;
+}
+  .box1_pt3, .box2_pt3, .box3_pt3 {
+    width: 90%;
+    max-width: 700px;
+    margin: 0.5rem 3rem ;
+  }
+
+
+  /* PLANOS - cards de 450px de largura fixa */
+  .plan_free, .plan_medium, .plan_high {
+    width: 380px;
+    height: auto;
+    min-height: 1000px;
+  }
+
+  /* PT4 */
+  .box2_pt4 h2 { font-size: 44px; }
+  .box2_pt4 h3 { font-size: 30px; }
+  .box2_pt4 p  { font-size: 26px; }
+
+  /* FOOTER */
+  .footer-conteudo {
+    margin-left: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   BREAKPOINT 2: até 1200px
+   --------------------------------------------------------- */
+@media (max-width: 1200px) {
+
+  header {
+    height: auto;
+    min-height: 90vh;
+    padding-bottom: 3rem;
+  }
+
+  .slogan {
+    margin-left: 40px;
+    width: 90%;
+  }
+  h1 { font-size: 56px; }
+  h2 { font-size: 40px; }
+
+  #botao-texto {
+    top: auto;
+    position: relative;
+    left: 40px;
+    margin-top: 2rem;
+  }
+
+  #background {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .bola_1, .bola_2, .bola_3, .bola_3line, .bola_4, .bola_4line {
+    display: none; /* decorativo, atrapalha em telas médias */
+  }
+
+  /* ITEMS */
+  .box-item {
+    width: 45%;
+  }
+
+  /* RECURSOS */
+  .principal {
+    margin-left: 1.5rem;
+    width: 90%;
+  }
+  .recurso {
+    margin-top: 1rem;
+  }
+  .recurso li a {
+    position: static;
+  }
+  .container {
+    width: 92%;
+  }
+  .item-rec h3 { font-size: 24px; }
+  .item-rec p { font-size: 20px; }
+
+  /* PT3 */
+  #items_pt3 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .boxprincipal_pt3 {
+    width: 80%;
+    margin-left: 0;
+    height: auto;
+    padding: 2rem 0 6rem;
+  }
+  .img_livro, .img_livro2 {
+    position: static;
+    display: inline-block;
+    margin: 1rem;
+  }
+  .box_passos {
+    width: 80%;
+  }
+  .box1_pt3, .box2_pt3, .box3_pt3 {
+    width: 100%;
+    height: auto;
+    min-height: 140px;
+    margin-right: 0;
+    padding: 1rem;
+  }
+  /*---- BTN PT3 ----*/
+.btn-criar-pt3{
+	margin-right: 8rem;
+}
+
+.btn-explorar-pt3{
+	margin-bottom: 4rem;
+	margin-right: 1.8rem;
+}
+
+  /* PLANOS */
+  .plan_container {
+    gap: 1.5rem;
+  }
+  .plan_free, .plan_medium, .plan_high {
+    width: 320px;
+  }
+
+  /* PT4 */
+  #items_pt4 {
+    flex-wrap: wrap;
+  }
+  .box_pt4, .box2_pt4 {
+    position: absolute;
+    width: 100%;
+    border-radius: 30px;
+  }
+  .box_pt4 { height: 400px; }
+
+  /* FOOTER */
+  .footer-conteudo {
+    margin-left: 0;
+    justify-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .footer-col ul {
+    align-items: center;
+    gap: -22rem;
+  }
+  .box-apps {
+    align-items: center;
+  }
+  .footer-logo img {
+    width: 120px;
+    height: 120px;
+    bottom: 180px;
+  }
+  .footer-social-daddy {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .footer-copy {
+    flex-direction: column;
+    text-align: center;
+  }
+}

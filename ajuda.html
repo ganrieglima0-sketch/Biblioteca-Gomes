@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda</title>
+    <!--    LOGO/ABA    -->
+    <link rel="icon" type="image/png" sizes="128x128" href="logo_aba.png">
+    <!-- Recursos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="ajuda.css">
+    <!--    NOVO: painéis da central    -->
+    <link rel="stylesheet" href="ajuda-paineis.css">
+</head>
+<body id="topo">
+    <section class="hero">
+            <header>
+        <nav id="nav-esq">
+            <!--    LOGO    -->
+            <div id="logo">
+                <img id="logo_default" src="logo_default.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo" onclick="location.reload()" style="cursor: pointer;">
+            </div> 
+            <!--    MENU HAMBURGUER    -->
+            <ul id="icon-menu">
+                <li id="menu"><i class="fa-solid fa-bars fa-2xl"></i></li>
+            </ul>
+            <!--    MENU PRINCIPAL    -->
+            <ul class="menu-principal">
+                <li class="menu-fechar"><i class="fa-solid fa-xmark fa-2xl"></i></li>
+                <li><a class="btn" href="index.html">Home</a></li>                
+                <li><a class="btn" href="acervo.html">Acervo</a></li>                
+                <li><a class="btn" href="leitura.html">Leitura</a></li>
+                <li><a class="btn ativo" href="ajuda.html">Ajuda</a></li>
+                <li><a class="btn" href="sobre.html">O que Somos</a></li>   
+                <!-- DROPDOWN IDIOMA  -->
+                <li class="dropdown-ac">
+                    <a id="btn-idioma" class="btn dropdown-btn-ac" href="#">Idioma<span id="seta-idioma"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content dd-idioma">
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('pt'); return false;">Pt</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('en'); return false;">En</a>
+                        <a class="btn-dd" href="#" onclick="mudarIdioma('es'); return false;">Es</a>
+                    </div>
+                </li>
+            <!--    DROPDOWN ACESSIBILIDADE    -->
+                <li class="dropdown-ac">
+                    <a id="btn-acessibilidade" class="btn dropdown-btn-ac" href="#">Acessibilidade<span id="seta-ac"><i class="fa-solid fa-caret-down"></i></span></a>
+                    <div class="dropdown-content">
+                        <a id="a+" class="btn-dd" href="#">A+</a>
+                        <a id="a-" class="btn-dd" href="#">A-</a>
+                        <a id="dark" class="btn-dd" href="#"><i id="darkmode" class="fa-solid fa-moon"></i>
+                        <i id="whitemode" class="fa-solid fa-sun"></i> </a>
+                    </div>
+                </li>             
+            <!--    BOTÕES LOGIN (só aparecem deslogado)    -->
+            <li class="botoes-login" id="botoes-login">
+                <a href="criar.html" class="btn-criar"><b>Criar</b></a>
+                <a href="login.html" class="btn-entrar"><b>Entrar</b></a>
+            </li>
+            <!--    USUÁRIO (só aparece logado)    -->
+            <li class="usuario oculto" id="usuario">
+                <button type="button" id="btn-usuario" class="btn-usuario" aria-label="Abrir menu da conta">
+                    <img id="foto-usuario" class="foto-usuario" src="perfil_basico.png" alt="Foto do perfil">
+                </button>
+                <div class="menu-usuario" id="menu-usuario">
+                    <p id="nome-usuario" class="nome-usuario"></p>
+                    <p id="plano-usuario" class="plano-usuario"></p>
+                    <button type="button" id="btn-sair" class="btn-sair"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+                </div>
+            </li>
+        </ul>
+        </nav> 
+        <div class="menu-overlay"></div>
+    </header>
+    </section>
+
+    <!--    CONTEÚDO DA AJUDA    -->
+    <main class="ajuda">
+
+        <!--    MIGALHAS    -->
+        <nav class="migalhas" aria-label="Você está em">
+            <a href="index.html">Início</a>
+            <span>/</span>
+            <span>Central de ajuda</span>
+        </nav>
+
+        <!--    TÍTULO    -->
+        <div class="ajuda-titulo">
+            <h1>Central de Ajuda e Suporte</h1>
+            <p>Tudo o que você precisa para aproveitar sua biblioteca.</p>
+        </div>
+
+        <div class="ajuda-layout">
+
+            <!--    LATERAL    -->
+            <aside class="lateral">
+                <div class="lateral-menu">
+                    <p class="lateral-titulo">NESTA CENTRAL</p>
+                    <a href="#faq" class="lateral-link ativo"><i class="fa-regular fa-circle-question"></i> Central de Ajuda</a>
+                    <a href="#termos" class="lateral-link"><i class="fa-regular fa-file-lines"></i> Termos de Uso</a>
+                    <a href="#privacidade" class="lateral-link"><i class="fa-solid fa-shield-halved"></i> Política de Privacidade</a>
+                    <a href="#cookies" class="lateral-link"><i class="fa-solid fa-cookie-bite"></i> Cookies</a>
+                    <a href="#contato" class="lateral-link"><i class="fa-regular fa-envelope"></i> Contato</a>
+                </div>
+
+                <div class="caixa-ajuda">
+                    <i class="fa-regular fa-envelope"></i>
+                    <h3>Precisa de uma mão?</h3>
+                    <p>Nossa equipe está aqui para ajudar você.</p>
+                    <a href="#contato">Entre em contato <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </aside>
+
+            <!--    PAINÉIS (só um aparece por vez)    -->
+            <div class="paineis">
+
+            <!--    PAINEL: FAQ    -->
+            <section class="conteudo painel ativo" id="faq">
+                <h2>FAQ — Perguntas frequentes</h2>
+                <p class="conteudo-texto">Encontre respostas sobre acesso, assinatura e leitura digital. Se precisar, envie uma mensagem pela aba <a href="#contato">Contato</a>.</p>
+
+                <!--    BUSCA NO FAQ    -->
+                <div class="busca-faq">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="busca-faq" placeholder="Busque por uma dúvida (ex.: assinatura, anotações)">
+                </div>
+                <!--    PERGUNTAS    -->
+                <div class="faq" id="lista-faq">
+                    <div class="faq-item aberto">
+                        <button type="button" class="pergunta" aria-expanded="true">
+                            Como faço para acessar os livros da Biblioteca Gomes?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="resposta">
+                            <p>Crie sua conta, escolha uma assinatura e entre na Área do Leitor. Depois, encontre um título no acervo e selecione "Ler Agora". Os livros ficam disponíveis na plataforma enquanto sua assinatura estiver ativa.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="pergunta" aria-expanded="false">
+                            Preciso de uma assinatura para explorar o acervo?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="resposta">
+                            <p>Não. Você pode navegar pelo acervo e pesquisar títulos livremente. A assinatura é necessária apenas para ler os livros. No plano Basic (grátis) o acesso ao acervo é limitado.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="pergunta" aria-expanded="false">
+                            Como salvo um livro para ler depois?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="resposta">
+                            <p>Ao abrir um título, use a opção de favoritos ou de salvar. Ele será adicionado à sua biblioteca pessoal, onde você encontra tudo o que salvou.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="pergunta" aria-expanded="false">
+                            Onde encontro minhas anotações?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="resposta">
+                            <p>Suas anotações e marcadores ficam salvos na sua biblioteca pessoal, junto ao livro em que foram feitos, para facilitar consultas e revisões.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="pergunta" aria-expanded="false">
+                            Como gerencio minha assinatura?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="resposta">
+                            <p>Na sua conta, acesse a área de planos para trocar de plano, atualizar os dados de pagamento ou cancelar a assinatura quando quiser.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="pergunta" aria-expanded="false">
+                            Como meus dados pessoais são utilizados?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="resposta">
+                            <p>Seus dados são usados apenas para o funcionamento da plataforma, como login, recomendações e histórico de leitura. Veja os detalhes na <a href="#privacidade">Política de Privacidade</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="sem-faq" id="sem-faq">Nenhuma pergunta encontrada. Tente outra palavra ou envie sua dúvida pela aba <a href="#contato">Contato</a>.</p>
+
+                <p class="nota">Mais informações sobre a plataforma em <a href="#termos">Termos de Uso</a> e <a href="#privacidade">Privacidade</a>.</p>
+            </section>
+
+            <!--    PAINEL: TERMOS DE USO    -->
+            <section class="conteudo painel texto-legal" id="termos">
+                <h2>Termos de Uso</h2>
+                <p class="conteudo-texto">Última atualização: novembro de 2026.</p>
+
+                <h3>1. Aceitação dos termos</h3>
+                <p>Ao criar uma conta ou utilizar a <b>Biblioteca Gomes</b>, você concorda com estes Termos de Uso. Se não concordar com algum ponto, pedimos que não utilize a plataforma.</p>
+
+                <h3>2. Sobre o serviço</h3>
+                <p>A Biblioteca Gomes é uma plataforma digital de leitura que reúne livros e conteúdos de diferentes gêneros e áreas do conhecimento. O acesso ao acervo varia conforme o plano escolhido (Basic, Standard ou Premium).</p>
+
+                <h3>3. Cadastro e conta</h3>
+                <ul>
+                    <li>Você deve fornecer informações verdadeiras e mantê-las atualizadas.</li>
+                    <li>Você é responsável por manter sua senha em sigilo e por tudo o que acontece na sua conta.</li>
+                    <li>Cada conta é pessoal e não pode ser compartilhada ou revendida.</li>
+                    <li>Menores de 18 anos devem usar a plataforma com autorização de um responsável.</li>
+                </ul>
+
+                <h3>4. Planos e pagamento</h3>
+                <p>O plano Basic é gratuito e possui acesso limitado ao acervo. Os planos Standard e Premium são pagos, cobrados mensalmente, e podem ser alterados ou cancelados a qualquer momento na área de planos da sua conta. O cancelamento vale para as próximas cobranças, e o acesso continua até o fim do período já pago.</p>
+
+                <h3>5. Uso permitido</h3>
+                <p>Os livros e conteúdos são disponibilizados apenas para leitura pessoal dentro da plataforma. É proibido:</p>
+                <ul>
+                    <li>copiar, reproduzir, distribuir ou vender o conteúdo do acervo;</li>
+                    <li>burlar sistemas de proteção, limites de acesso ou de leitura offline;</li>
+                    <li>usar a plataforma para fins ilegais ou que prejudiquem outros usuários;</li>
+                    <li>tentar acessar áreas restritas ou contas de terceiros.</li>
+                </ul>
+
+                <h3>6. Propriedade intelectual</h3>
+                <p>Os livros pertencem aos seus respectivos autores e editoras. A marca, o design e o código da Biblioteca Gomes são de nossa propriedade. O uso da plataforma não transfere a você nenhum direito sobre esses conteúdos.</p>
+
+                <h3>7. Suspensão e encerramento</h3>
+                <p>Podemos suspender ou encerrar contas que violem estes termos, depois de avisar o usuário quando possível. Você pode encerrar sua conta quando quiser.</p>
+
+                <h3>8. Limitação de responsabilidade</h3>
+                <p>Trabalhamos para manter a plataforma sempre disponível, mas ela pode passar por manutenções ou instabilidades. Não nos responsabilizamos por indisponibilidades temporárias causadas por fatores externos, como falhas de internet ou de terceiros.</p>
+
+                <h3>9. Alterações nos termos</h3>
+                <p>Estes termos podem ser atualizados. Quando houver mudanças importantes, avisaremos pela plataforma ou por e-mail. Continuar usando o serviço após a atualização significa que você aceita a nova versão.</p>
+
+                <h3>10. Dúvidas</h3>
+                <p>Em caso de dúvidas sobre estes termos, fale com a gente pela aba <a href="#contato">Contato</a>.</p>
+            </section>
+
+            <!--    PAINEL: PRIVACIDADE    -->
+            <section class="conteudo painel texto-legal" id="privacidade">
+                <h2>Política de Privacidade</h2>
+                <p class="conteudo-texto">Última atualização: novembro de 2026. Esta política segue a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018).</p>
+
+                <h3>1. Quais dados coletamos</h3>
+                <ul>
+                    <li><b>Dados de cadastro:</b> nome, e-mail e senha.</li>
+                    <li><b>Dados de uso:</b> livros lidos, progresso de leitura, favoritos, anotações e histórico.</li>
+                    <li><b>Dados técnicos:</b> tipo de dispositivo, navegador e idioma, para adaptar a plataforma.</li>
+                    <li><b>Dados de pagamento:</b> nos planos pagos, processados por parceiros de pagamento. Não armazenamos os dados completos do seu cartão.</li>
+                </ul>
+
+                <h3>2. Para que usamos seus dados</h3>
+                <ul>
+                    <li>Criar e manter sua conta e permitir o login;</li>
+                    <li>Mostrar seu histórico, sua biblioteca pessoal e suas anotações;</li>
+                    <li>Oferecer recomendações de leitura personalizadas;</li>
+                    <li>Processar pagamentos e gerenciar sua assinatura;</li>
+                    <li>Melhorar a plataforma e responder às suas mensagens de suporte.</li>
+                </ul>
+
+                <h3>3. Compartilhamento</h3>
+                <p>Não vendemos seus dados. Eles só são compartilhados com prestadores de serviço necessários ao funcionamento da plataforma (como pagamento e hospedagem) ou quando a lei exigir.</p>
+
+                <h3>4. Por quanto tempo guardamos</h3>
+                <p>Mantemos seus dados enquanto sua conta estiver ativa. Ao encerrá-la, os dados são apagados ou anonimizados, exceto quando precisarmos guardá-los por obrigação legal.</p>
+
+                <h3>5. Seus direitos</h3>
+                <p>Pela LGPD, você pode a qualquer momento:</p>
+                <ul>
+                    <li>confirmar se tratamos seus dados e acessá-los;</li>
+                    <li>corrigir dados incompletos ou desatualizados;</li>
+                    <li>pedir a exclusão dos seus dados;</li>
+                    <li>solicitar a portabilidade e revogar consentimentos.</li>
+                </ul>
+                <p>Para exercer qualquer direito, use a aba <a href="#contato">Contato</a>.</p>
+
+                <h3>6. Segurança</h3>
+                <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda ou alteração. Mesmo assim, nenhum sistema é totalmente imune, e por isso recomendamos o uso de uma senha forte e exclusiva.</p>
+
+                <h3>7. Alterações nesta política</h3>
+                <p>Esta política pode ser atualizada. A data da última revisão fica sempre no topo desta página.</p>
+            </section>
+
+            <!--    PAINEL: COOKIES    -->
+            <section class="conteudo painel texto-legal" id="cookies">
+                <h2>Política de Cookies</h2>
+                <p class="conteudo-texto">Última atualização: novembro de 2026.</p>
+
+                <h3>1. O que são cookies</h3>
+                <p>Cookies são pequenos arquivos salvos no seu navegador quando você visita um site. Eles ajudam a plataforma a lembrar de você e das suas preferências.</p>
+
+                <h3>2. Como usamos</h3>
+                <ul>
+                    <li><b>Essenciais:</b> mantêm você conectado e garantem o funcionamento básico do site, como o login e a Área do Leitor.</li>
+                    <li><b>Preferências:</b> guardam escolhas como idioma, tamanho da fonte (A+ / A-) e modo de contraste.</li>
+                    <li><b>Desempenho:</b> ajudam a entender como a plataforma é usada, para melhorá-la.</li>
+                    <li><b>Serviços de terceiros:</b> o tradutor de idiomas (Google Tradutor) pode gravar um cookie para lembrar o idioma escolhido.</li>
+                </ul>
+
+                <h3>3. Como gerenciar</h3>
+                <p>Você pode apagar ou bloquear cookies nas configurações do seu navegador. Atenção: bloquear os cookies essenciais pode impedir o login e o funcionamento de partes da plataforma.</p>
+
+                <h3>4. Dúvidas</h3>
+                <p>Se tiver dúvidas sobre o uso de cookies, fale com a gente pela aba <a href="#contato">Contato</a>. Para saber como tratamos seus dados, veja também a <a href="#privacidade">Política de Privacidade</a>.</p>
+            </section>
+
+            <!--    PAINEL: CONTATO    -->
+            <section class="conteudo painel" id="contato">
+                <div class="contato">
+                    <h2>Contato</h2>
+                    <p class="conteudo-texto">Envie sua dúvida, sugestão ou pedido sobre seus dados. Respondemos o mais rápido possível, em dias úteis.</p>
+
+                    <ul class="contato-info">
+                        <li><i class="fa-regular fa-envelope"></i> contato@bibliotecagomes.com.br</li>
+                        <li><i class="fa-regular fa-clock"></i> Atendimento: segunda a sexta, das 9h às 18h</li>
+                    </ul>
+
+                    <form id="form-contato" novalidate>
+                        <div class="campos">
+                            <div class="campo">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" placeholder="Seu nome completo">
+                                <small class="erro"></small>
+                            </div>
+                            <div class="campo">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" placeholder="voce@exemplo.com">
+                                <small class="erro"></small>
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="assunto">Assunto</label>
+                            <select id="assunto">
+                                <option value="">Selecione um assunto</option>
+                                <option value="conta">Conta e acesso</option>
+                                <option value="assinatura">Assinatura e pagamento</option>
+                                <option value="leitura">Leitura e acervo</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                            <small class="erro"></small>
+                        </div>
+
+                        <div class="campo">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" rows="10" maxlength="800" placeholder="Conte para nós como podemos ajudar..."></textarea>
+                            <small class="contador-msg" id="contador-msg">0/800</small>
+                            <small class="erro"></small>
+                        </div>
+
+                        <p class="nota">Ao enviar, você concorda com nossa <a href="#privacidade">Política de Privacidade</a>.</p>
+
+                        <button type="submit" class="btn-enviar">Enviar mensagem <i class="fa-solid fa-arrow-right"></i></button>
+                        <p class="sucesso" id="sucesso">Mensagem enviada! Responderemos em breve.</p>
+                    </form>
+                </div>
+            </section>
+
+            </div>
+        </div>
+    </main>
+
+        <!--    FINAL    -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,90 C360,-10 1080,190 1440,70 L1440,150 L0,150 Z"></path>
+            </svg>
+        </div>
+        <div class="footer-conteudo">
+            <div class="footer-col">
+                <h3>Planos</h3>
+                <ul>
+                    <li><a href="index.html#plano1">Basic</a></li>
+                    <li><a href="index.html#plano2">Standard</a></li>
+                    <li><a href="index.html#plano3">Premium</a></li>
+                </ul>
+            </div>
+        <div class="footer-col">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="sobre.html">Sobre nós</a></li>
+                <li><a href="ajuda.html#contato">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-logo" class="footer-col">
+                <img id="logo_default" src="logo_default.png" alt="Logo">
+                <img id="logo_darkmode" src="logo_darkmode.png" alt="Logo">
+        </div>
+        <div class="footer-col">
+            <h3>Suporte</h3>
+            <ul>
+                <li><a href="ajuda.html#faq">Central de ajuda</a></li>
+                <li><a href="ajuda.html#termos">Termos de uso</a></li>
+                <li><a href="ajuda.html#privacidade">Política de privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Baixe nosso app</h3>
+            <div class="box-apps">
+                <a href="https://apps.apple.com/br/developer/apple/id284417353?mt=12" target="_blank" class="app">
+                    <span id="icon" style="color: #fff;"><i class="fa-brands fa-apple fa-xl"></i></span>
+                    <span>
+                    <small>Disponível na</small>
+                         App Store </span>
+                </a> 
+                <a href="https://play.google.com/store/games?hl=pt_BR" target="_blank" class="app">
+                    <span id="icon" style="color: #fff"><i class="fa-brands fa-google-play fa-xl"></i></span>
+                    <span>
+                    <small>Disponível no</small>
+                    Google Play</span>
+                </a>
+            </div>
+        </div>
+        </div>
+  <div class="footer-social-daddy">
+    <h3>Siga-nos</h3>
+    <div class="footer-social">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-lg"></i></a>
+      <a href="https://br.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in fa-lg"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+      <a href="https://x.com/?lang=pt" target="_blank"><i class="fa-brands fa-x-twitter fa-lg"></i></a> 
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    <p>&copy; 2026 Biblioteca Gomes. Todos os direitos reservados.</p>
+    <div class="footer-termos">
+      <a href="ajuda.html#termos">Termos</a>
+      <a href="ajuda.html#privacidade">Privacidade</a>
+      <a href="ajuda.html#cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+    <a href="#topo" id="botao-up"><i class="fa-solid fa-arrow-up"></i></a>
+    <div id="google_translate_element" style="display: none;"></div>
+    <script src="ajuda.js"></script>
+    <script src="ajuda-paineis.js"></script>
+    <script src="conta.js"></script>
+</body>
+</html>

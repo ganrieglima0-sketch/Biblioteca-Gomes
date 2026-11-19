@@ -1,0 +1,586 @@
+/* =========================================================
+   LIVRO.CSS (Tela de leitura)
+   Carregado DEPOIS do leitura.css: menu, rodapé, usuário,
+   barra de progresso (.barra) e contraste do menu vêm de lá.
+========================================================= */
+
+[hidden]{
+	display: none !important;
+}
+
+.livro{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem 3rem;
+}
+
+/* =========================================================
+   LIVRO NÃO ENCONTRADO
+========================================================= */
+.livro-erro{
+	max-width: 520px;
+	margin: 3rem auto;
+	padding: 2.5rem 1.5rem;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 14px;
+	text-align: center;
+	box-shadow: 0 2px 8px rgba(2, 25, 89, 0.06);
+}
+.livro-erro i{
+	color: #1465C1;
+	font-size: 2rem;
+}
+.livro-erro h2{
+	margin: 0.8rem 0 0.5rem;
+	font-family: "Noto Serif", serif;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+.livro-erro p{
+	margin-bottom: 1.5rem;
+	color: #5d688b;
+	font-size: 0.9rem;
+	line-height: 1.6;
+}
+
+/* =========================================================
+   CABEÇALHO DO LIVRO
+========================================================= */
+.livro-topo{
+	display: flex;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+	padding: 1.5rem;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(2, 25, 89, 0.06);
+}
+.livro-capa{
+	position: relative;
+	flex: 0 0 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 3 / 4;
+	padding: 0.8rem;
+	border-radius: 8px;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	font-family: "Noto Serif", serif;
+	font-size: 0.85rem;
+	box-shadow: 0 4px 10px rgba(2, 25, 89, 0.25);
+}
+.livro-capa img{
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.livro-info{
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 0;
+}
+.livro-cat{
+	color: #8a96b2;
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+.livro-info h1{
+	margin: 0.3rem 0;
+	color: #021959;
+	font-family: "Noto Serif", serif;
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+.livro-autor{
+	color: #5d688b;
+	font-size: 0.95rem;
+}
+.livro-progresso{
+	max-width: 420px;
+	margin-top: 1rem;
+}
+.livro-progresso p{
+	margin-top: 0.3rem;
+	color: #8a96b2;
+	font-size: 0.78rem;
+}
+.livro-acoes{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin-top: auto;
+	padding-top: 1rem;
+}
+.btn-acao{
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 8px;
+	color: #021959;
+	font-size: 0.82rem;
+	font-weight: 600;
+	transition: .25s ease-in-out;
+}
+.btn-acao:hover{
+	border-color: #1465C1;
+}
+.btn-acao.ativo{
+	background-color: #021959;
+	border-color: #021959;
+	color: #fff;
+}
+.btn-acao:disabled{
+	opacity: 0.6;
+	cursor: default;
+}
+.aviso-livro{
+	min-height: 1.2em;
+	margin-top: 0.6rem;
+	color: #1465C1;
+	font-size: 0.78rem;
+}
+/* =========================================================
+   SINOPSE E LIVRO BLOQUEADO
+========================================================= */
+.livro-sinopse{
+	margin-bottom: 1.5rem;
+	padding: 1.2rem 1.5rem;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(2, 25, 89, 0.06);
+}
+.livro-sinopse h3{
+	margin-bottom: 0.5rem;
+	color: #0c233a;
+	font-family: "Inter", sans-serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+.livro-sinopse p{
+	color: #0c233a;
+	font-size: 0.95rem;
+	line-height: 1.7;
+}
+.livro-bloqueado-acoes{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.8rem;
+}
+
+/* botão travado (plano básico) */
+.btn-acao.travado{
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+.btn-acao.travado:hover{
+	border-color: #e3e9f4;
+}
+/* =========================================================
+   ÍNDICE + LEITURA
+========================================================= */
+.livro-layout{
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: 1.5rem;
+	align-items: start;
+}
+
+/*---- ÍNDICE ----*/
+.livro-indice{
+	position: sticky;
+	top: 1rem;
+	padding: 1rem;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(2, 25, 89, 0.06);
+}
+.livro-indice summary{
+	cursor: pointer;
+	color: #0c233a;
+	font-family: "Inter", sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+}
+#lista-capitulos{
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	margin-top: 0.8rem;
+	list-style: none;
+}
+.item-capitulo{
+	display: block;
+	width: 100%;
+	padding: 8px 10px;
+	background: none;
+	border: none;
+	border-radius: 8px;
+	color: #5d688b;
+	font-size: 0.82rem;
+	text-align: left;
+	transition: .25s ease-in-out;
+}
+.item-capitulo:hover{
+	background-color: #f4f7fc;
+}
+.item-capitulo.lido{
+	color: #1465C1;
+}
+.item-capitulo.ativo{
+	background-color: #e0f2fe;
+	color: #021959;
+	font-weight: 700;
+}
+
+/*---- TEXTO ----*/
+.livro-leitura{
+	min-width: 0;
+	padding: 1.5rem 2rem;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(2, 25, 89, 0.06);
+}
+.leitura-barra{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+.leitura-posicao{
+	color: #8a96b2;
+	font-size: 0.78rem;
+}
+.leitura-fonte{
+	display: flex;
+	gap: 0.4rem;
+}
+.btn-fonte{
+	width: 34px;
+	height: 34px;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 8px;
+	color: #021959;
+	font-size: 0.8rem;
+	font-weight: 700;
+	transition: .25s ease-in-out;
+}
+.btn-fonte:hover{
+	background-color: #021959;
+	color: #fff;
+}
+.livro-leitura h2{
+	margin-bottom: 1rem;
+	color: #0c233a;
+	font-family: "Noto Serif", serif;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+.capitulo-texto{
+	color: #0c233a;
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+.capitulo-texto p{
+	margin-bottom: 1rem;
+}
+
+/*---- ANTERIOR / PRÓXIMO ----*/
+.capitulo-nav{
+	display: flex;
+	justify-content: space-between;
+	gap: 0.8rem;
+	margin: 1.5rem 0;
+	padding-top: 1rem;
+	border-top: 1px solid #e3e9f4;
+}
+.btn-nav{
+	padding: 10px 22px;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 8px;
+	color: #021959;
+	font-size: 0.85rem;
+	font-weight: 600;
+	transition: .25s ease-in-out;
+}
+.btn-nav:hover{
+	border-color: #1465C1;
+}
+.btn-nav.principal{
+	background-color: #0a2a5e;
+	border-color: #0a2a5e;
+	color: #fff;
+}
+.btn-nav.principal:hover{
+	filter: brightness(1.3);
+}
+.btn-nav:disabled{
+	opacity: 0.4;
+	cursor: default;
+}
+
+/*---- ANOTAÇÕES ----*/
+.anotacoes h3{
+	margin-bottom: 0.6rem;
+	color: #0c233a;
+	font-family: "Inter", sans-serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+.anotacoes textarea{
+	width: 100%;
+	min-height: 90px;
+	padding: 10px 12px;
+	background-color: #fff;
+	border: 1px solid #e3e9f4;
+	border-radius: 8px;
+	color: #0c233a;
+	font-family: "Open Sans", sans-serif;
+	font-size: 0.9rem;
+	resize: vertical;
+	outline: none;
+}
+.anotacoes textarea:focus{
+	border-color: #008FFF;
+}
+.anotacoes-linha{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin: 0.6rem 0 1rem;
+}
+.anotacoes-linha label{
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	color: #5d688b;
+	font-size: 0.8rem;
+}
+#lista-notas{
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	list-style: none;
+}
+.nota{
+	padding: 0.8rem;
+	background-color: #f4f7fc;
+	border-radius: 10px;
+}
+.nota-topo{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.6rem;
+	margin-bottom: 0.3rem;
+	color: #8a96b2;
+	font-size: 0.72rem;
+}
+.nota-texto{
+	color: #0c233a;
+	font-size: 0.88rem;
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+.btn-apagar{
+	background: none;
+	border: none;
+	color: #d93025;
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+.nota-vazia{
+	color: #8a96b2;
+	font-size: 0.82rem;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+/*---- TABLET ----*/
+@media (max-width: 900px){
+	.livro-layout{
+		grid-template-columns: 1fr;
+	}
+	.livro-indice{
+		position: static;
+	}
+}
+
+/*---- CELULAR ----*/
+@media (max-width: 600px){
+	.livro{
+		padding: 1.5rem 1rem 2rem;
+	}
+	.livro-topo{
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.livro-capa{
+		flex: none;
+		width: 140px;
+	}
+	.livro-progresso{
+		width: 100%;
+	}
+	.livro-acoes{
+		justify-content: center;
+	}
+	.livro-info h1{
+		font-size: 1.4rem;
+	}
+	.livro-leitura{
+		padding: 1.2rem 1rem;
+	}
+	.btn-nav{
+		padding: 10px 14px;
+	}
+}
+
+/* =========================================================
+   CONTRASTE
+   (o menu, o rodapé e o usuário já são tratados no leitura.css)
+========================================================= */
+
+/* CARDS */
+body.alto-contraste .livro-erro,
+body.alto-contraste .livro-topo,
+body.alto-contraste .livro-indice,
+body.alto-contraste .livro-leitura{
+	background: #00002A !important;
+	border: 2px solid #ffffff !important;
+	box-shadow: none !important;
+}
+body.alto-contraste .livro-sinopse{
+	background: #00002A !important;
+	border: 2px solid #ffffff !important;
+	box-shadow: none !important;
+}
+body.alto-contraste .livro-sinopse h3{
+	color: #fff !important;
+}
+body.alto-contraste .livro-sinopse p{
+	color: #BACCEF !important;
+}
+body.alto-contraste .btn-acao.travado{
+	color: #8fb3e8 !important;
+	border: 1px solid #3a5a99 !important;
+}
+
+/* TEXTOS */
+body.alto-contraste .livro-cat,
+body.alto-contraste .aviso-livro,
+body.alto-contraste .livro-erro i{
+	color: #1DE2FF !important;
+}
+body.alto-contraste .livro-info h1,
+body.alto-contraste .livro-erro h2,
+body.alto-contraste .livro-indice summary,
+body.alto-contraste .livro-leitura h2,
+body.alto-contraste .capitulo-texto,
+body.alto-contraste .anotacoes h3,
+body.alto-contraste .nota-texto{
+	color: #fff !important;
+}
+body.alto-contraste .livro-autor,
+body.alto-contraste .livro-erro p,
+body.alto-contraste .anotacoes-linha label{
+	color: #BACCEF !important;
+}
+body.alto-contraste .livro-progresso p,
+body.alto-contraste .leitura-posicao,
+body.alto-contraste .nota-topo,
+body.alto-contraste .nota-vazia{
+	color: #8fb3e8 !important;
+}
+
+/* BOTÕES DO CABEÇALHO */
+body.alto-contraste .btn-acao{
+	background: #00002A !important;
+	border: 1px solid #afafaf !important;
+	color: #fff !important;
+}
+body.alto-contraste .btn-acao:hover{
+	border: 1px solid #ffffff !important;
+}
+body.alto-contraste .btn-acao.ativo{
+	background: #0099ff !important;
+	border: 1px solid #0099ff !important;
+}
+body.alto-contraste .btn-acao.travado{
+	color: #8fb3e8 !important;
+	border: 1px solid #3a5a99 !important;
+}
+/* ÍNDICE */
+body.alto-contraste .item-capitulo{
+	color: #BACCEF !important;
+}
+body.alto-contraste .item-capitulo:hover{
+	background: #00001A !important;
+}
+body.alto-contraste .item-capitulo.lido{
+	color: #1DE2FF !important;
+}
+body.alto-contraste .item-capitulo.ativo{
+	background: #0099ff !important;
+	color: #fff !important;
+}
+
+/* LEITURA */
+body.alto-contraste .btn-fonte,
+body.alto-contraste .btn-nav{
+	background: #00002A !important;
+	border: 1px solid #afafaf !important;
+	color: #fff !important;
+}
+body.alto-contraste .btn-fonte:hover{
+	background: #fff !important;
+	color: #00001A !important;
+}
+body.alto-contraste .btn-nav:hover{
+	border: 1px solid #ffffff !important;
+}
+body.alto-contraste .btn-nav.principal{
+	background: #0099ff !important;
+	border: 1px solid #0099ff !important;
+}
+body.alto-contraste .capitulo-nav{
+	border-top: 1px solid #1a2a5e !important;
+}
+
+/* ANOTAÇÕES */
+body.alto-contraste .anotacoes textarea{
+	background: #00001A !important;
+	border: 1px solid #afafaf !important;
+	color: #fff !important;
+}
+body.alto-contraste .anotacoes textarea::placeholder{
+	color: #8fa6d4 !important;
+}
+body.alto-contraste .nota{
+	background: #00001A !important;
+}
+body.alto-contraste .btn-apagar{
+	color: #ff8a80 !important;
+}

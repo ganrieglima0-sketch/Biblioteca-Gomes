@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Criar</title>
+    <!--    LOGO/ABA    -->
+    <link rel="icon" type="image/png" sizes="128x128" href="logo_aba.png">
+
+    <!-- recurso -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="backgrounds">
+        <img class="background girl" src="girl-login.png">
+        <img class="background boy" src="boy-login.png">
+    </div>
+
+    <header class="topo">
+        <a href="index.html" class="topo-logo">
+            <img src="logo_darkmode.png" alt="Logo">
+        </a>
+    </header>
+    <div class="login-container">
+        <form class="login-form" id="form-login" novalidate>
+            <h2>Crie sua conta!</h2>
+            <p>Preencha os dados abaixo para se cadastrar.</p>
+
+            <!-- Campo Usuário / E-mail -->
+             <p class="camp-input">Nome</p>
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <span></span>
+                <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                <small class="erro"></small>
+            </div>
+
+             <p class="camp-input">E-mail</p>
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <span></span>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+                <small class="erro"></small>
+            </div>
+             <p id="erro-email" class="msg-erro-campo" style="display: none;"></p>
+
+            <!-- Campo Senha -->
+            <p class="camp-input">Senha</p>
+            <div class="input-group">
+                <i class="fa-solid fa-unlock-keyhole"></i>
+                <span></span>
+                <input type="password" id="senha" placeholder="Crie uma senha forte" required>
+                <button type="button" class="toggle-senha" aria-label="Mostrar senha">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+                <small class="erro"></small>
+            </div>
+             <p id="erro-senha2" class="msg-erro-campo" style="display: none;"></p>
+
+            <p class="camp-input">Confirmar senha</p>
+            <div class="input-group">
+                <i class="fa-solid fa-unlock-keyhole"></i>
+                <span></span>
+                <input type="password" id="senha2FA" placeholder="Digite sua senha novamente" required>
+                <button type="button" class="toggle-senha" aria-label="Mostrar senha">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+                <small class="erro"></small>
+            </div>
+             <p id="erro-senha2" class="msg-erro-campo" style="display: none;"></p>
+
+            <!-- Opções Extras -->
+            <div class="form-options">
+                <label>
+                    <input type="checkbox" id="termos"> Li e aceito os <a href="ajuda.html#termos">Termos de Uso e Privacidade</a>
+                </label>
+                <small class="erro-termos">Você precisa aceitar os termos para continuar.</small>
+            </div> 
+
+            <!-- Btn de Entrar -->
+             <p id="erro-login"></p>
+            <button type="submit" class="btn-login">Cadastrar</button>
+
+            <!-- Opções de Login-->
+            <div class="login">
+                <button class="botao google" type="button" onclick="loginGoogle()">
+                    <span class="icone"><i class="fa-brands fa-google"></i></span>
+                </button>
+                <button class="botao apple" type="button" onclick="loginApple()">
+                    <span class="icone"><i class="fa-brands fa-apple"></i></span>
+                </button>
+            </div>
+
+            <!-- Cadastrar -->
+            <div class="register-link">
+                <p>Já tem uma conta? <a href="login.html"> Faça Login</a></p>
+            </div>
+        </form>
+    </div>
+            <!-- FOOTER -->
+    <footer class="rodape">
+        <p>© 2026 Biblioteca Gomes. Todos os direitos reservados.</p>
+        <nav class="rodape-links">
+            <a href="ajuda.html#termos">Termos de uso</a>
+            <a href="ajuda.html#privacidade">Privacidade</a>
+            <a href="ajuda.html#contato">Contato</a>
+        </nav>
+    </footer>
+    <script src="criar.js"></script>
+</body>
+</html>

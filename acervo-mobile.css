@@ -1,0 +1,252 @@
+/* =========================================================
+   ACERVO-MOBILE.CSS
+   Ajustes de celular só da página do acervo.
+   Carregar depois do acervo.css.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  header {
+    height: auto;
+  }
+
+  /* ---------------- NAV / MENU HAMBURGUER ---------------- */
+  #nav-esq {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 1rem;
+  }
+
+  #logo {
+    margin-left: 0;
+  }
+
+  #icon-menu {
+    display: flex;
+    margin-left: auto;
+  }
+  #icon-menu li {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  /* ---------------- MENU LATERAL (SIDEBAR) ---------------- */
+  .menu-principal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    gap: 0.5rem;
+    height: 100dvh;
+    max-height: none;
+    width: 78%;
+    max-width: 320px;
+    margin: 0;
+    padding: 2rem 1.5rem;
+    background-color: #ffffff;
+    box-shadow: -6px 0 24px rgba(0,0,0,0.18);
+    z-index: 20;
+    transform: translateX(100%);
+    transition: transform .35s ease-in-out;
+    overflow-y: auto;
+  }
+  .menu-principal.aberto {
+    transform: translateX(0);
+    border-radius: 25px 0px 0px 0px;
+  }
+
+  .menu-fechar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+
+  .menu-principal li {
+    flex-flow: column row-reverse;
+    list-style: none;
+    margin-right: 0;
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+  .menu-principal li a {
+    font-size: 18px;
+  }
+  .menu-principal li a.btn:hover {
+    filter: brightness(0.8);
+    border-bottom: none;
+    transition: .3s ease-in-out;
+  }
+
+  .menu-principal .menu-fechar {
+    position: absolute;
+    bottom: 43rem;
+    left: 15.5rem;
+    display: flex;
+  }
+  .menu-fechar, #menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px;
+    border-radius: 8px;
+    outline: none;
+  }
+  .menu-fechar:focus-visible,
+  #menu:focus-visible {
+    outline: 22px solid #021959;
+    outline-offset: 44px;
+  }
+
+  .botoes-login {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .btn-criar, .btn-entrar {
+    width: 100%;
+  }
+  .botoes-login a {
+    text-align: center;
+  }
+
+  .dropdown-content.dd-idioma {
+    transform: translate(var(--ajuste-x), var(--ajuste-y));
+    --ajuste-x: 0px;
+    --ajuste-y: 0px;
+  }
+  .dropdown-content {
+    position: static;
+    margin: 0.5rem 0 0;
+    width: 100%;
+    transform: translate(var(--ajuste-x), var(--ajuste-y));
+    --ajuste-x: 0px;
+    --ajuste-y: 0px;
+  }
+
+  /* fundo escurecido */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 25, 89, 0.45);
+    z-index: 15;
+  }
+  .menu-overlay.aberto {
+    display: block;
+  }
+  .menu-overlay, .menu-principal {
+    touch-action: none;
+  }
+
+  /* ---------------- BANNER / BUSCA / CATEGORIAS ---------------- */
+  .banner-acervo {
+    margin: 0 1rem;
+    padding: 2rem 1rem 1.8rem;
+    border-radius: 16px;
+  }
+  .banner-chamada {
+    font-size: 0.7rem;
+  }
+  .banner-acervo h1 {
+    font-size: 2rem;
+  }
+  .banner-sub {
+    font-size: 0.95rem;
+  }
+
+  .busca {
+    margin: 1.2rem auto;
+    padding: 5px 5px 5px 12px;
+  }
+  .busca input {
+    min-width: 0;
+    font-size: 0.9rem;
+  }
+  #btn-pesquisa {
+    padding: 9px 16px;
+    font-size: 0.9rem;
+  }
+
+  .chip {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  /* ---------------- LISTA DE LIVROS ---------------- */
+  .acervo {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+  .acervo-topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .acervo-topo h2 {
+    font-size: 1.3rem;
+  }
+  #ordenar {
+    width: 100%;
+  }
+
+  .grade-livros {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  .card-livro {
+    padding: 8px;
+  }
+  .capa {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+  .card-livro h3 {
+    font-size: 0.9rem;
+  }
+  .card-autor {
+    font-size: 0.78rem;
+  }
+  .btn-assinar {
+    font-size: 0.78rem;
+    padding: 8px 4px;
+  }
+
+  /* ---------------- BOTÃO UP ---------------- */
+  #botao-up {
+    bottom: 20px;
+    right: 10px;
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
+}
+
+/* --- MODO ESCURO: menu lateral no celular --- */
+@media (max-width: 768px) {
+  body.alto-contraste .menu-principal {
+    background-color: #00002A !important;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.8) !important;
+    border-left: 1px solid #0084e9 !important;
+  }
+  body.alto-contraste .menu-fechar i {
+    color: #ffffff !important;
+  }
+  body.alto-contraste #icon-menu li i {
+    color: #ffffff !important;
+  }
+  body.alto-contraste .menu-overlay {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+  }
+}
+
+/* --- CELULARES MUITO PEQUENOS --- */
+@media (max-width: 340px) {
+  .grade-livros {
+    grid-template-columns: 1fr;
+  }
+}
